@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Bioscoop.csproj": {}
+    "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Bioscoop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Bioscoop.csproj": {
+    "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Bioscoop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Bioscoop.csproj",
+        "projectUniqueName": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Bioscoop.csproj",
         "projectName": "Bioscoop",
-        "projectPath": "C:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Bioscoop.csproj",
+        "projectPath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Bioscoop.csproj",
         "packagesPath": "C:\\Users\\yassine.000\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\obj\\",
+        "outputPath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -44,6 +44,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Bootstrap": {
+              "target": "Package",
+              "version": "[4.6.0, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.3, )"
