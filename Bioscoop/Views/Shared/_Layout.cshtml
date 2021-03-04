@@ -6,10 +6,31 @@
     <title>@ViewData["Title"] - Bioscoop</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+  <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+        <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        </style>
+
+        
+        <!-- Custom styles for this template -->
+        <link href="css/product.css" rel="stylesheet">
+
+
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        @* <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Bioscoop</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -27,13 +48,27 @@
                     </ul>
                 </div>
             </div>
+        </nav> *@
+        <nav class="site-header sticky-top py-1">
+            <div class="container d-flex flex-column flex-md-row justify-content-between">
+                <a class="py-2" href="#" aria-label="Product">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24" focusable="false"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
+                </a>
+                <a class="py-2 d-none d-md-inline-block" href="#">Tour</a>
+                <a class="py-2 d-none d-md-inline-block" href="#">Product</a>
+                <a class="py-2 d-none d-md-inline-block" href="#">Features</a>
+                <a class="py-2 d-none d-md-inline-block" href="#">Enterprise</a>
+                <a class="py-2 d-none d-md-inline-block" href="#">Support</a>
+                <a class="py-2 d-none d-md-inline-block" href="#">Pricing</a>
+                <a class="py-2 d-none d-md-inline-block" href="#">Cart</a>
+            </div>
         </nav>
+
+
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="">
             @RenderBody()
         </main>
-    </div>
 
     <footer class="border-top footer text-muted">
         <div class="container">

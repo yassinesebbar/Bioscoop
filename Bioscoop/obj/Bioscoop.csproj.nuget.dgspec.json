@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Bioscoop.csproj": {}
+    "C:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Bioscoop.csproj": {}
   },
   "projects": {
-    "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Bioscoop.csproj": {
+    "C:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Bioscoop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Bioscoop.csproj",
+        "projectUniqueName": "C:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Bioscoop.csproj",
         "projectName": "Bioscoop",
-        "projectPath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Bioscoop.csproj",
+        "projectPath": "C:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Bioscoop.csproj",
         "packagesPath": "C:\\Users\\yassine.000\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\obj\\",
+        "outputPath": "C:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
