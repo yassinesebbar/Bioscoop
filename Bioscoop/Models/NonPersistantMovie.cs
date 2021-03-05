@@ -44,8 +44,7 @@ namespace Bioscoop.Models
         [Display(Name = "Prijs")]
         public decimal Price {get; set;}
 
-        [Required(ErrorMessage = "Please choose the movie cover")]  
         [Display(Name = "Movie cover")]  
-        public IFormFile ProfileImage { get; set; } 
+        public IFormFile movieCover { get; set; } 
     }
 }

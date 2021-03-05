@@ -7,16 +7,21 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Bioscoop.Data;
 using Bioscoop.Models;
+using Microsoft.AspNetCore.Hosting;
+using System.IO; 
 
 namespace Bioscoop.Controllers
 {
     public class MoviesController : Controller
     {
         private readonly BioscoopContext _context;
+        private readonly IWebHostEnvironment webHostEnvironment;  
 
-        public MoviesController(BioscoopContext context)
+
+        public MoviesController(BioscoopContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            webHostEnvironment = hostEnvironment; 
         }
 
         // GET: Movies
@@ -54,16 +59,48 @@ namespace Bioscoop.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,ReleaseDate,ImageCover,Title,Description,Genre,RatingGuide,director,Cast,DurationMin,Price")] Movie movie)
+        public async Task<IActionResult> Create(NonPersistantMovie NPmovie)
         {
             if (ModelState.IsValid)
             {
+                Movie movie =  new Movie{
+                    ReleaseDate = NPmovie.ReleaseDate,
+                    ImageCover = UploadedFile(NPmovie),
+                    Title = NPmovie.Title,
+                    Description = NPmovie.Description,
+                    Genre = NPmovie.Genre,
+                    RatingGuide = NPmovie.RatingGuide,
+                    director = NPmovie.director,
+                    Cast = NPmovie.Cast,
+                    DurationMin = NPmovie.DurationMin,
+                    Price = NPmovie.Price
+                };
+
                 _context.Add(movie);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(movie);
+            return View(NPmovie);
         }
+
+        private string UploadedFile(NonPersistantMovie model)  
+        {  
+            string uniqueFileName = null;  
+  
+            if (model.movieCover != null)  
+            {  
+                string uploadsFolder = "wwwroot/images";  
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + model.movieCover.FileName;  
+                string filePath = uploadsFolder + "/" + uniqueFileName;  
+                using (var fileStream = new FileStream(filePath, FileMode.Create))  
+                {  
+                    model.movieCover.CopyTo(fileStream);  
+                }  
+            }  
+            return uniqueFileName;  
+        }  
+     
+
 
         // GET: Movies/Edit/5
         public async Task<IActionResult> Edit(int? id)
