@@ -6,6 +6,7 @@ namespace Bioscoop.Models
 {
     public class Movie
     {
+         [Key]
         public int ID {get; set;}
         
         [Display(Name = "Releasedatum")]
@@ -38,9 +39,6 @@ namespace Bioscoop.Models
 
         [Display(Name = "Duur")]
         public int DurationMin {get; set;}
-
-        [Display(Name = "Prijs")]
-        public decimal Price {get; set;}
 
     }
 }

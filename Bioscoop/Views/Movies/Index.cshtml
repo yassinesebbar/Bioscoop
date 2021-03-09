@@ -39,9 +39,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.DurationMin)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -74,9 +71,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DurationMin)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |

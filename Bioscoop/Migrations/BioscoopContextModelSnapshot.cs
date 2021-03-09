@@ -16,6 +16,62 @@ namespace Bioscoop.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.3");
 
+            modelBuilder.Entity("Bioscoop.Models.Event", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("End")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("HallID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("IDhall")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("IDmovie")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("MovieID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("Start")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("HallID");
+
+                    b.HasIndex("MovieID");
+
+                    b.ToTable("Events");
+                });
+
+            modelBuilder.Entity("Bioscoop.Models.Hall", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Rows")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("SeatsPerRow")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Halls");
+                });
+
             modelBuilder.Entity("Bioscoop.Models.Movie", b =>
                 {
                     b.Property<int>("ID")
@@ -37,9 +93,6 @@ namespace Bioscoop.Migrations
                     b.Property<string>("ImageCover")
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("RatingGuide")
                         .HasColumnType("TEXT");
 
@@ -55,6 +108,21 @@ namespace Bioscoop.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Movies");
+                });
+
+            modelBuilder.Entity("Bioscoop.Models.Event", b =>
+                {
+                    b.HasOne("Bioscoop.Models.Hall", "Hall")
+                        .WithMany()
+                        .HasForeignKey("HallID");
+
+                    b.HasOne("Bioscoop.Models.Movie", "Movie")
+                        .WithMany()
+                        .HasForeignKey("MovieID");
+
+                    b.Navigation("Hall");
+
+                    b.Navigation("Movie");
                 });
 #pragma warning restore 612, 618
         }

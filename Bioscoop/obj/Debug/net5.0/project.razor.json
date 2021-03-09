@@ -15618,6 +15618,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Events\\Details.cshtml",
+      "TargetPath": "Views\\Events\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Movies\\Create.cshtml",
       "TargetPath": "Views\\Movies\\Create.cshtml",
       "FileKind": "mvc"
@@ -15630,6 +15635,11 @@
     {
       "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Events\\Create.cshtml",
+      "TargetPath": "Views\\Events\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15653,8 +15663,53 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Halls\\Create.cshtml",
+      "TargetPath": "Views\\Halls\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Movies\\Edit.cshtml",
       "TargetPath": "Views\\Movies\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Halls\\Details.cshtml",
+      "TargetPath": "Views\\Halls\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Halls\\Delete.cshtml",
+      "TargetPath": "Views\\Halls\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Events\\Edit.cshtml",
+      "TargetPath": "Views\\Events\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Events\\Index.cshtml",
+      "TargetPath": "Views\\Events\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Halls\\Edit.cshtml",
+      "TargetPath": "Views\\Halls\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Halls\\Index.cshtml",
+      "TargetPath": "Views\\Halls\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Events\\Delete.cshtml",
+      "TargetPath": "Views\\Events\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Events\\EventsMovieFilter.cshtml",
+      "TargetPath": "Views\\Events\\EventsMovieFilter.cshtml",
       "FileKind": "mvc"
     },
     {

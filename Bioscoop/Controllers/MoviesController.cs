@@ -73,7 +73,6 @@ namespace Bioscoop.Controllers
                     director = NPmovie.director,
                     Cast = NPmovie.Cast,
                     DurationMin = NPmovie.DurationMin,
-                    Price = NPmovie.Price
                 };
 
                 _context.Add(movie);

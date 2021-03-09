@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KjRg946bODH/sZ0ctV0v1zvHu2T819Wkg6PfN2mmuRpdvHado3ctOFqMdCvMvY7DAoXZx9z76KUwSgSygCj7zQ==",
+  "dgSpecHash": "rMtTrIp46ymZmNvMECumRJr+SqyleGkyMTYLYJZgCOybmSdKwT9AOPum12XSFNg7HjoUHuNvSdLvFY3CmhbHuA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Bioscoop.csproj",
+  "projectFilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Bioscoop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\yassine.000\\.nuget\\packages\\bootstrap\\4.6.0\\bootstrap.4.6.0.nupkg.sha512",
     "C:\\Users\\yassine.000\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

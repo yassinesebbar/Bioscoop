@@ -1,0 +1,68 @@
+@model Bioscoop.Models.Event
+
+@{
+    ViewData["Title"] = "Details";
+    Movie Movie = (Movie) ViewData["Movie"];
+    List<Event> Events = (List<Event>) ViewData["Events"];
+}
+
+    @* <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style> *@
+
+    
+    <!-- Custom styles for this template -->
+    
+<div class="container">
+  <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="~/images/@Movie.ImageCover" alt="" width="300" height="400" preserveAspectRatio="xMidYMid slice" >
+    <h2>@Movie.Title</h2>
+    <p class="lead">@Movie.Description</p>
+  </div>
+  <div class="row">
+    <div class="col-md-12 order-md-1">
+      <h4 class="mb-3">Draai momenten</h4>
+      <form class="needs-validation" novalidate>
+        <div class="row">
+          <div class="col-md-5 mb-3">
+            <select class="custom-select d-block w-100" id="country" required>
+              @if(Events != null)
+                {
+                    @foreach (var Event in Events)
+                    {
+                        <option value="@Event.ID">@Event.Start.ToString("dd-mm-yyyy") @Event.Start.ToString("hh:mm") - @Event.End.ToString("hh:mm")</option>
+                    }
+                }
+            </select>
+          </div>
+      </div>
+        <hr class="mb-4">
+        <h4 class="mb-3">Tarieven</h4>
+        <div class="d-block my-3">
+          <div class="custom-control custom-radio">
+            <input name="paymentMethod" type="radio" class="custom-control-input" checked required>
+            <label class="custom-control-label" for="credit">Normaal</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+            <label class="custom-control-label" for="debit">Kinderkorting - Studentkorting - 65+ korting</label>
+          </div>
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+      </form>
+    </div>
+</div>
+
