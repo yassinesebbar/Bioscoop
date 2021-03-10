@@ -10,6 +10,8 @@ c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish
 c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\css\site.css
 c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\favicon.ico
 c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\images\356abac5-f11f-40e1-827e-dfb02b0c84a2_91GjsAnebsL._AC_SL1500_.jpg
+c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\images\8375cfac-359c-48c8-bc62-f3998a6ca597_91GjsAnebsL._AC_SL1500_.jpg
+c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\images\aa85aac0-df83-4fd2-926e-b868da9769de_download (1).jfif
 c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\images\e752f3be-9ca7-47dc-8c57-17d189a9fef2_rick.jpg
 c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\js\site.js
 c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
@@ -45,17 +47,13 @@ c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish
 c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\lib\jquery\dist\jquery.min.js
 c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\lib\jquery\dist\jquery.min.map
 c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\lib\jquery\LICENSE.txt
-c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\publish\web.config
 c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\appsettings.Development.json
 c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\appsettings.json
-c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\publish\appsettings.Development.json
-c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\publish\appsettings.json
-c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\publish\Bioscoop.deps.json
-c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\publish\Bioscoop.runtimeconfig.json
 c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\Bioscoop.dll
 c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\Bioscoop.runtimeconfig.json
 c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\Bioscoop.pdb
 c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\Humanizer.dll
+c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\WebMatrix.Data.dll
 c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
 c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\Microsoft.AspNetCore.Razor.Language.dll
 c:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\Microsoft.Bcl.AsyncInterfaces.dll

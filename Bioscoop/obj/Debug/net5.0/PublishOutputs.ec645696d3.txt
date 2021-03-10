@@ -10,6 +10,8 @@ C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\css\site.css
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\favicon.ico
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\images\356abac5-f11f-40e1-827e-dfb02b0c84a2_91GjsAnebsL._AC_SL1500_.jpg
+C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\images\8375cfac-359c-48c8-bc62-f3998a6ca597_91GjsAnebsL._AC_SL1500_.jpg
+C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\images\aa85aac0-df83-4fd2-926e-b868da9769de_download (1).jfif
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\images\e752f3be-9ca7-47dc-8c57-17d189a9fef2_rick.jpg
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\js\site.js
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
@@ -56,6 +58,7 @@ C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\Bioscoop.runtimeconfig.json
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\Bioscoop.pdb
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\Humanizer.dll
+C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\WebMatrix.Data.dll
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\Microsoft.Bcl.AsyncInterfaces.dll

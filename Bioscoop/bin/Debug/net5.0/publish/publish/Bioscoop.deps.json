@@ -6,7 +6,7 @@
   "compilationOptions": {
     "defines": [
       "TRACE",
-      "RELEASE",
+      "DEBUG",
       "NET",
       "NET5_0",
       "NETCOREAPP"
@@ -15,7 +15,7 @@
     "platform": "",
     "allowUnsafe": false,
     "warningsAsErrors": false,
-    "optimize": true,
+    "optimize": false,
     "keyFile": "",
     "emitEntryPoint": true,
     "xmlDoc": false,
@@ -32,8 +32,10 @@
           "Microsoft.EntityFrameworkCore.Design": "5.0.3",
           "Microsoft.EntityFrameworkCore.Sqlite": "5.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.3",
+          "Microsoft.EntityFrameworkCore.Tools": "3.1.3",
           "Microsoft.Extensions.Logging.Debug": "5.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "5.0.2",
+          "WebMatrix.Data": "2.0.30506",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "5.0.0.0",
@@ -338,6 +340,17 @@
         }
       },
       "jQuery/3.0.0": {},
+      "Microsoft.AspNet.WebPages.Data/2.0.20710": {
+        "runtime": {
+          "lib/net40/WebMatrix.Data.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.20710.0"
+          }
+        },
+        "compile": {
+          "lib/net40/WebMatrix.Data.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/5.0.3": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Relational": "5.0.3"
@@ -900,6 +913,11 @@
         },
         "compile": {
           "lib/netstandard2.1/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Tools/3.1.3": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design": "5.0.3"
         }
       },
       "Microsoft.Extensions.Caching.Abstractions/5.0.0": {
@@ -2111,6 +2129,11 @@
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0",
           "System.Xml.XmlDocument": "4.3.0"
+        }
+      },
+      "WebMatrix.Data/2.0.30506": {
+        "dependencies": {
+          "Microsoft.AspNet.WebPages.Data": "2.0.20710"
         }
       },
       "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
@@ -3828,6 +3851,13 @@
       "path": "jquery/3.0.0",
       "hashPath": "jquery.3.0.0.nupkg.sha512"
     },
+    "Microsoft.AspNet.WebPages.Data/2.0.20710": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-PTwS5C1vF69FDikWhUkJZ4qb96yxtdVuVR90Hjt7e/GDNVOeR7tXMYWHs9cPP0v35EiO+V6BUj1c8dNCUXW7Ag==",
+      "path": "microsoft.aspnet.webpages.data/2.0.20710",
+      "hashPath": "microsoft.aspnet.webpages.data.2.0.20710.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/5.0.3": {
       "type": "package",
       "serviceable": true,
@@ -4058,6 +4088,13 @@
       "sha512": "sha512-T0cU7999ffojbqEVF7nTp7IoSHrzo748BQRMSmmlmKC+uluQbV18GhtLLu3aOA5Egmja8gFEuN9+QZdViA0Dfw==",
       "path": "microsoft.entityframeworkcore.sqlserver/5.0.3",
       "hashPath": "microsoft.entityframeworkcore.sqlserver.5.0.3.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Tools/3.1.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/VSHVXwg8Zu5gJILvcEIVjmpQbuUg6+SEwU6pFa/RtXMPD+QSgAuzRYIfDbeVHjJuQxK3nRwkTFxorO254BLLw==",
+      "path": "microsoft.entityframeworkcore.tools/3.1.3",
+      "hashPath": "microsoft.entityframeworkcore.tools.3.1.3.nupkg.sha512"
     },
     "Microsoft.Extensions.Caching.Abstractions/5.0.0": {
       "type": "package",
@@ -4891,6 +4928,13 @@
       "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "WebMatrix.Data/2.0.30506": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SL5Gi0iWGv+qBm2NYceRseYljjpMxeANa8F6/LcAkZKyRjUxuUlbY63ZrmuZdz7aBSNeD8jIWF8gFsp9pCWh+w==",
+      "path": "webmatrix.data/2.0.30506",
+      "hashPath": "webmatrix.data.2.0.30506.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
       "type": "referenceassembly",
