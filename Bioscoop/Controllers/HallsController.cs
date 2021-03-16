@@ -33,7 +33,7 @@ namespace Bioscoop.Controllers
                 return NotFound();
             }
 
-            var hall = await _context.Halls
+            var hall = await _context.Halls.Include(m => m.Seats)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (hall == null)
             {
@@ -56,9 +56,10 @@ namespace Bioscoop.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Description,Rows,SeatsPerRow, Name")] Hall hall)
         {
+
             if (ModelState.IsValid)
             {
-                hall.SetSeats();
+                hall.SetSeats(_context);
                 _context.Add(hall);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

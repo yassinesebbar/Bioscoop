@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Http;
 
-namespace Bioscoop.Models
+namespace Bioscoop.ViewDataWrapper
 {
     public class NonPersistantMovie
     {
@@ -40,9 +40,6 @@ namespace Bioscoop.Models
 
         [Display(Name = "Duur")]
         public int DurationMin {get; set;}
-
-        [Display(Name = "Prijs")]
-        public decimal Price {get; set;}
 
         [Display(Name = "Movie cover")]  
         public IFormFile movieCover { get; set; } 

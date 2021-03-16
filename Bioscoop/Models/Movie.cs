@@ -40,5 +40,7 @@ namespace Bioscoop.Models
         [Display(Name = "Duur")]
         public int DurationMin {get; set;}
 
+        [Display(Name = "3D")]
+        public Boolean ThreeD {get; set;}
     }
 }

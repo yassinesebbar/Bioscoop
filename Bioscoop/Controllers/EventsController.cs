@@ -55,6 +55,7 @@ namespace Bioscoop.Controllers
             ViewData["Movie"] = await _context.Movies
                 .FirstOrDefaultAsync(m => m.ID == id);
             ViewData["Events"] =   _context.Events.Where(e => e.IDmovie == id).ToList();
+            ViewData["TicketDiscounts"] = await _context.TicketDiscounts.ToListAsync();
 
 
 
@@ -80,8 +81,11 @@ namespace Bioscoop.Controllers
             @event.Movie = await _context.Movies
                 .FirstOrDefaultAsync(m => m.ID == @event.IDmovie);
 
-            @event.Hall = await _context.Halls
+            @event.Hall = await _context.Halls.Include(h => h.Seats)
                 .FirstOrDefaultAsync(m => m.ID == @event.IDhall);
+
+                @event.setHallInformation(_context);
+
                 ModelState.Clear();
 
             if (ModelState.IsValid)

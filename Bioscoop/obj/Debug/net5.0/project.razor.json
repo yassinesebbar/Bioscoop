@@ -15628,6 +15628,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\TicketDiscount\\Index.cshtml",
+      "TargetPath": "Views\\TicketDiscount\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
@@ -15638,8 +15643,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Reservations\\Delete.cshtml",
+      "TargetPath": "Views\\Reservations\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Reservations\\Edit.cshtml",
+      "TargetPath": "Views\\Reservations\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Events\\Create.cshtml",
       "TargetPath": "Views\\Events\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\TicketDiscount\\Edit.cshtml",
+      "TargetPath": "Views\\TicketDiscount\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15663,8 +15683,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Reservations\\Details.cshtml",
+      "TargetPath": "Views\\Reservations\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Halls\\Create.cshtml",
       "TargetPath": "Views\\Halls\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Chair\\Delete.cshtml",
+      "TargetPath": "Views\\Chair\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15673,8 +15703,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Reservations\\Index.cshtml",
+      "TargetPath": "Views\\Reservations\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Halls\\Details.cshtml",
       "TargetPath": "Views\\Halls\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Chair\\Create.cshtml",
+      "TargetPath": "Views\\Chair\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15698,6 +15738,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\TicketDiscount\\Create.cshtml",
+      "TargetPath": "Views\\TicketDiscount\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\TicketDiscount\\Details.cshtml",
+      "TargetPath": "Views\\TicketDiscount\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Halls\\Index.cshtml",
       "TargetPath": "Views\\Halls\\Index.cshtml",
       "FileKind": "mvc"
@@ -15713,8 +15763,33 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\TicketDiscount\\Delete.cshtml",
+      "TargetPath": "Views\\TicketDiscount\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Chair\\Details.cshtml",
+      "TargetPath": "Views\\Chair\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Movies\\Details.cshtml",
       "TargetPath": "Views\\Movies\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Chair\\Edit.cshtml",
+      "TargetPath": "Views\\Chair\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Chair\\Index.cshtml",
+      "TargetPath": "Views\\Chair\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Reservations\\Create.cshtml",
+      "TargetPath": "Views\\Reservations\\Create.cshtml",
       "FileKind": "mvc"
     }
   ],

@@ -16,11 +16,46 @@ namespace Bioscoop.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.3");
 
+            modelBuilder.Entity("Bioscoop.Models.Chair", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ChairNr")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("FKIDEventAvailable")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("FKIDEventReserverd")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("FKIDHall")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("FKIDReservation")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("FKIDEventAvailable");
+
+                    b.HasIndex("FKIDEventReserverd");
+
+                    b.HasIndex("FKIDHall");
+
+                    b.ToTable("Chairs");
+                });
+
             modelBuilder.Entity("Bioscoop.Models.Event", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
+
+                    b.Property<double>("BasePrijs")
+                        .HasColumnType("REAL");
 
                     b.Property<DateTime>("End")
                         .HasColumnType("TEXT");
@@ -49,6 +84,43 @@ namespace Bioscoop.Migrations
                     b.ToTable("Events");
                 });
 
+            modelBuilder.Entity("Bioscoop.Models.FinanceTransaction", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("DateTimeTransaction")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("DiscountID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("ExtraTarif")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("IDdiscount")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("basePrice")
+                        .HasColumnType("REAL");
+
+                    b.Property<string>("descriptionExtraTarif")
+                        .HasColumnType("TEXT");
+
+                    b.Property<double>("discount")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("totalPrice")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("DiscountID");
+
+                    b.ToTable("FinanceTransactions");
+                });
+
             modelBuilder.Entity("Bioscoop.Models.Hall", b =>
                 {
                     b.Property<int>("ID")
@@ -60,6 +132,9 @@ namespace Bioscoop.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("NumSeats")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("Rows")
                         .HasColumnType("INTEGER");
@@ -99,6 +174,9 @@ namespace Bioscoop.Migrations
                     b.Property<DateTime>("ReleaseDate")
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("ThreeD")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Title")
                         .HasColumnType("TEXT");
 
@@ -108,6 +186,79 @@ namespace Bioscoop.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Movies");
+                });
+
+            modelBuilder.Entity("Bioscoop.Models.Reservation", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("EventID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("FKIDReservation")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("FinanceTransactionID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("IDdiscount")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("IDevent")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("IDtransaction")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("ReservationDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("geanuleerd")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("EventID");
+
+                    b.HasIndex("FKIDReservation");
+
+                    b.HasIndex("FinanceTransactionID");
+
+                    b.ToTable("Reservations");
+                });
+
+            modelBuilder.Entity("Bioscoop.Models.TicketDiscount", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<double>("discountAmount")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("TicketDiscounts");
+                });
+
+            modelBuilder.Entity("Bioscoop.Models.Chair", b =>
+                {
+                    b.HasOne("Bioscoop.Models.Event", null)
+                        .WithMany("AvailableSeats")
+                        .HasForeignKey("FKIDEventAvailable");
+
+                    b.HasOne("Bioscoop.Models.Event", null)
+                        .WithMany("ReservedSeats")
+                        .HasForeignKey("FKIDEventReserverd");
+
+                    b.HasOne("Bioscoop.Models.Hall", null)
+                        .WithMany("Seats")
+                        .HasForeignKey("FKIDHall");
                 });
 
             modelBuilder.Entity("Bioscoop.Models.Event", b =>
@@ -123,6 +274,48 @@ namespace Bioscoop.Migrations
                     b.Navigation("Hall");
 
                     b.Navigation("Movie");
+                });
+
+            modelBuilder.Entity("Bioscoop.Models.FinanceTransaction", b =>
+                {
+                    b.HasOne("Bioscoop.Models.TicketDiscount", "Discount")
+                        .WithMany()
+                        .HasForeignKey("DiscountID");
+
+                    b.Navigation("Discount");
+                });
+
+            modelBuilder.Entity("Bioscoop.Models.Reservation", b =>
+                {
+                    b.HasOne("Bioscoop.Models.Event", "Event")
+                        .WithMany()
+                        .HasForeignKey("EventID");
+
+                    b.HasOne("Bioscoop.Models.Chair", "StoelNr")
+                        .WithMany()
+                        .HasForeignKey("FKIDReservation");
+
+                    b.HasOne("Bioscoop.Models.FinanceTransaction", "FinanceTransaction")
+                        .WithMany()
+                        .HasForeignKey("FinanceTransactionID");
+
+                    b.Navigation("Event");
+
+                    b.Navigation("FinanceTransaction");
+
+                    b.Navigation("StoelNr");
+                });
+
+            modelBuilder.Entity("Bioscoop.Models.Event", b =>
+                {
+                    b.Navigation("AvailableSeats");
+
+                    b.Navigation("ReservedSeats");
+                });
+
+            modelBuilder.Entity("Bioscoop.Models.Hall", b =>
+                {
+                    b.Navigation("Seats");
                 });
 #pragma warning restore 612, 618
         }
