@@ -38,17 +38,17 @@ namespace Bioscoop.Models
             return this.BasePrijs;
         }
 
-        public void setBasePrijs(Double BasePrijs)
+        public void setBasePrijs()
         {
             if(this.Movie.ThreeD){
                 this.BasePrijs += 2.5;
             }
 
-            if(this.Movie.DurationMin > 119){
+            if(this.Movie.DurationMin <= 120){
                 this.BasePrijs += 8.50;
+            }else{
+                this.BasePrijs += 9;
             }
-
-            this.BasePrijs += BasePrijs;
         }
         public List<Chair> getReservedSeats()
         {

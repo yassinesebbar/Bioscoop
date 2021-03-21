@@ -1,9 +1,13 @@
 using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Bioscoop.Data;
 
 namespace Bioscoop.Models
 {
     public class FinanceTransaction
     {
+        [Key]
         public int ID { get; set; }
         public Double basePrice { get; set; }
         public Double ExtraTarif { get; set; }
@@ -13,6 +17,7 @@ namespace Bioscoop.Models
         public Double totalPrice { get; set; }
         public DateTime DateTimeTransaction { get; set; }
         public int IDdiscount {get; set;}
+        public Boolean paymentIsComplete {get; set;}
 
         public int getID()
         {
@@ -72,7 +77,7 @@ namespace Bioscoop.Models
 
         public void setTotalPrice()
         {
-                 this.totalPrice = totalPrice - discount;
+                 this.totalPrice = basePrice - discount;
         }
 
         public DateTime getDateTimeTransaction()

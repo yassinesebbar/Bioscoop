@@ -93,11 +93,12 @@ namespace Bioscoop.Models
             this.ReservationDate = ReservationDate;
         }
 
-         public void setReservation(Event SingleEvents, TicketDiscount SingleDiscount, FinanceTransaction SingleTransaction)
+         public void setReservation(Event SingleEvents, TicketDiscount SingleDiscount)
         {
             this.Event = SingleEvents;
-            this.FinanceTransaction = SingleTransaction;
-            this.FinanceTransaction.Discount = SingleDiscount;
+            this.FinanceTransaction = new FinanceTransaction();
+;
+            this.FinanceTransaction.setDiscount(SingleDiscount);
             this.setTransaction();
             this.setStoelNr();
             this.Event.reserveSeat(this.StoelNr, null);
@@ -107,8 +108,6 @@ namespace Bioscoop.Models
         public void setTransaction(){
                 this.FinanceTransaction.setBasePrice(this.Event.getBasePrijs());
                 this.FinanceTransaction.setDateTimeTransaction(new DateTime());
-
-                this.FinanceTransaction.setBasePrice(this.Event.BasePrijs);
                 this.FinanceTransaction.setTotalPrice();
         }
     }

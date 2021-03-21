@@ -1,0 +1,63 @@
+@model Bioscoop.Models.FinanceTransaction
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>FinanceTransaction</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="basePrice" class="control-label"></label>
+                <input asp-for="basePrice" class="form-control" />
+                <span asp-validation-for="basePrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExtraTarif" class="control-label"></label>
+                <input asp-for="ExtraTarif" class="form-control" />
+                <span asp-validation-for="ExtraTarif" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="descriptionExtraTarif" class="control-label"></label>
+                <input asp-for="descriptionExtraTarif" class="form-control" />
+                <span asp-validation-for="descriptionExtraTarif" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="discount" class="control-label"></label>
+                <input asp-for="discount" class="form-control" />
+                <span asp-validation-for="discount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="totalPrice" class="control-label"></label>
+                <input asp-for="totalPrice" class="form-control" />
+                <span asp-validation-for="totalPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateTimeTransaction" class="control-label"></label>
+                <input asp-for="DateTimeTransaction" class="form-control" />
+                <span asp-validation-for="DateTimeTransaction" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IDdiscount" class="control-label"></label>
+                <input asp-for="IDdiscount" class="form-control" />
+                <span asp-validation-for="IDdiscount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

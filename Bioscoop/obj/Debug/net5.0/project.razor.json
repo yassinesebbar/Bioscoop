@@ -15653,6 +15653,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\FinanceTransaction\\Create.cshtml",
+      "TargetPath": "Views\\FinanceTransaction\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\FinanceTransaction\\TemplateTicketTablet.cshtml",
+      "TargetPath": "Views\\FinanceTransaction\\TemplateTicketTablet.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Events\\Create.cshtml",
       "TargetPath": "Views\\Events\\Create.cshtml",
       "FileKind": "mvc"
@@ -15743,6 +15753,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\FinanceTransaction\\Details.cshtml",
+      "TargetPath": "Views\\FinanceTransaction\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\FinanceTransaction\\DetailPaymentTablet.cshtml",
+      "TargetPath": "Views\\FinanceTransaction\\DetailPaymentTablet.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\TicketDiscount\\Details.cshtml",
       "TargetPath": "Views\\TicketDiscount\\Details.cshtml",
       "FileKind": "mvc"
@@ -15778,8 +15798,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\FinanceTransaction\\Index.cshtml",
+      "TargetPath": "Views\\FinanceTransaction\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\FinanceTransaction\\Delete.cshtml",
+      "TargetPath": "Views\\FinanceTransaction\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\FinanceTransaction\\Edit.cshtml",
+      "TargetPath": "Views\\FinanceTransaction\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Chair\\Edit.cshtml",
       "TargetPath": "Views\\Chair\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Demo\\DemoViewAsPDF.cshtml",
+      "TargetPath": "Views\\Demo\\DemoViewAsPDF.cshtml",
       "FileKind": "mvc"
     },
     {

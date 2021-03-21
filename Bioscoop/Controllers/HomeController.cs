@@ -26,7 +26,11 @@ namespace Bioscoop.Controllers
         }
 
         public async Task<IActionResult>  Index()
-        {
+        {      
+            
+            ViewBag.url = TempData["url"];
+            
+
             return View(await _context.Movies.ToListAsync());
         }
 

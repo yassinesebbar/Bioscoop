@@ -85,6 +85,7 @@ namespace Bioscoop.Controllers
                 .FirstOrDefaultAsync(m => m.ID == @event.IDhall);
 
                 @event.setHallInformation(_context);
+                @event.setBasePrijs();
 
                 ModelState.Clear();
 

@@ -34,8 +34,14 @@ namespace Bioscoop.Controllers
                 return NotFound();
             }
 
-            var reservation = await _context.Reservations.Include(r => r.Event).Include(r => r.FinanceTransaction).Include(r => r.StoelNr)
+            var reservation = await _context.Reservations
+                .Include(r => r.Event)
+                .Include(r => r.FinanceTransaction)
+                .Include(r => r.StoelNr)
+                .Include(r => r.FinanceTransaction.Discount)
+                .Include(r => r.Event.Hall)
                 .FirstOrDefaultAsync(m => m.ID == id);
+                
             if (reservation == null)
             {
                 return NotFound();
@@ -50,30 +56,28 @@ namespace Bioscoop.Controllers
             return View();
         }
 
-        // POST: Reservations/Create
+        // POST: Reservations/Creates
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,StoelNr,geanuleerd,ReservationDate,IDtransaction,IDevent")] Reservation reservation)
+        public async Task<IActionResult> Create([Bind("ID,StoelNr,geanuleerd,ReservationDate,IDtransaction,IDevent")] Reservation reservation, int IDdiscount)
         {
             if (ModelState.IsValid)
             {
-
-                FinanceTransaction transaction = new FinanceTransaction();
-
                 var Event = await _context.Events.Include(e => e.Movie).Include(e => e.ReservedSeats).Include(e => e.AvailableSeats).Where(e => e.ID == reservation.IDevent).SingleAsync();
 
                 reservation.setReservation(
-                Event,
-                await _context.TicketDiscounts.FirstOrDefaultAsync(d => d.ID == reservation.IDdiscount),
-                transaction);
+                    Event,
+                    await _context.TicketDiscounts.FirstOrDefaultAsync(d => d.ID == IDdiscount));
 
-                _context.Add(reservation);
-                _context.Add(transaction);
+                _context.Add(reservation);  
+                _context.Add(reservation.FinanceTransaction);
                 _context.Update(reservation.getStoelNr());
+
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                return RedirectToAction("DetailPaymentTablet", "FinanceTransaction", new { id = reservation.FinanceTransaction.ID });
             }
             
             return View(reservation);

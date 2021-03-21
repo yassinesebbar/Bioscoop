@@ -111,6 +111,9 @@ namespace Bioscoop.Migrations
                     b.Property<double>("discount")
                         .HasColumnType("REAL");
 
+                    b.Property<bool>("paymentIsComplete")
+                        .HasColumnType("INTEGER");
+
                     b.Property<double>("totalPrice")
                         .HasColumnType("REAL");
 
@@ -186,6 +189,34 @@ namespace Bioscoop.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Movies");
+                });
+
+            modelBuilder.Entity("Bioscoop.Models.Payment", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Banknr")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CouponCode")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("paymentMethod")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("reservationID")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("reservationID");
+
+                    b.ToTable("Payments");
                 });
 
             modelBuilder.Entity("Bioscoop.Models.Reservation", b =>
@@ -283,6 +314,15 @@ namespace Bioscoop.Migrations
                         .HasForeignKey("DiscountID");
 
                     b.Navigation("Discount");
+                });
+
+            modelBuilder.Entity("Bioscoop.Models.Payment", b =>
+                {
+                    b.HasOne("Bioscoop.Models.Reservation", "reservation")
+                        .WithMany()
+                        .HasForeignKey("reservationID");
+
+                    b.Navigation("reservation");
                 });
 
             modelBuilder.Entity("Bioscoop.Models.Reservation", b =>

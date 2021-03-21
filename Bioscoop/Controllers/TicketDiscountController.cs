@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Bioscoop.Data;
 using Bioscoop.Models;
 
+
 namespace Bioscoop.Controllers
 {
     public class TicketDiscountController : Controller
