@@ -197,8 +197,8 @@ namespace Bioscoop.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Amount")
-                        .HasColumnType("INTEGER");
+                    b.Property<double>("Amount")
+                        .HasColumnType("REAL");
 
                     b.Property<string>("Banknr")
                         .HasColumnType("TEXT");
@@ -225,6 +225,9 @@ namespace Bioscoop.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Email")
+                        .HasColumnType("TEXT");
+
                     b.Property<int?>("EventID")
                         .HasColumnType("INTEGER");
 
@@ -242,6 +245,12 @@ namespace Bioscoop.Migrations
 
                     b.Property<int>("IDtransaction")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("ReservationDate")
                         .HasColumnType("TEXT");

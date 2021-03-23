@@ -1,0 +1,51 @@
+@model Bioscoop.Models.Reservation;
+
+@{
+    ViewData["Title"] = "Events Movie Filter App";
+    Movie Movie = (Movie) ViewData["Movie"];
+    List<Event> Events = (List<Event>) ViewData["Events"];
+    List<TicketDiscount> TicketDiscounts = (List<TicketDiscount>) ViewData["TicketDiscounts"];
+}
+    
+<div class="container">
+  <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="~/images/@Movie.ImageCover" alt="" width="300" height="400" preserveAspectRatio="xMidYMid slice" >
+    <h2>@Movie.Title</h2>
+    <p class="lead">@Movie.Description</p>
+  </div>
+    <div class="row">
+      <div class="col-md-12 order-md-1">
+        <hr class="mb-4">
+        <form class="needs-validation" asp-controller="Reservations" asp-action="CreateApp">
+            <div class="row">
+              <div class="col-md-6 mb-3 form-group">
+                  <h4 class="mb-3">Draai momenten</h4>
+                <select asp-for="IDevent" class="custom-select d-block w-100" required>
+                  @if(Events != null)
+                    {
+                        @foreach (var Event in Events)
+                        {
+                            <option value="@Event.ID">@Event.Start.ToString("dd-mm-yyyy") @Event.Start.ToString("hh:mm") - @Event.End.ToString("hh:mm")</option>
+                        }
+                    }
+                </select>
+              </div>
+            <div class="col-md-6 mb-3 form-group" >
+                <h4 class="mb-3 ">Discount</h4>
+              <select asp-for="IDdiscount" class="custom-select d-block w-100" required>
+                <option value="Geen">Geen</option>
+                @if(TicketDiscounts != null)
+                  {
+                      @foreach (var TicketDiscount in TicketDiscounts)
+                      {
+                          <option value="@TicketDiscount.ID">@TicketDiscount.description</option>
+                      }
+                  }
+              </select>
+            </div>
+        </div>
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Volgende</button>
+      </form>
+    </div>
+</div>

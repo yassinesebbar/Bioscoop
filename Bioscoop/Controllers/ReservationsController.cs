@@ -8,16 +8,22 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Bioscoop.Data;
 using Bioscoop.Models;
+using DinkToPdf;
+using DinkToPdf.Contracts;
 
 namespace Bioscoop.Controllers
 {
     public class ReservationsController : Controller
     {
         private readonly BioscoopContext _context;
+        private readonly IConverter _converter;
 
-        public ReservationsController(BioscoopContext context)
+
+        public ReservationsController(BioscoopContext context, IConverter converter)
         {
             _context = context;
+            _converter = converter;
+
         }
 
         // GET: Reservations
@@ -61,7 +67,7 @@ namespace Bioscoop.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,StoelNr,geanuleerd,ReservationDate,IDtransaction,IDevent")] Reservation reservation, int IDdiscount)
+        public async Task<IActionResult> CreateApp([Bind("ID,StoelNr,geanuleerd,ReservationDate,IDtransaction,IDevent")] Reservation reservation, int IDdiscount)
         {
             if (ModelState.IsValid)
             {
@@ -77,7 +83,31 @@ namespace Bioscoop.Controllers
 
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction("DetailPaymentTablet", "FinanceTransaction", new { id = reservation.FinanceTransaction.ID });
+                return RedirectToAction("DetailPaymentApp", "FinanceTransaction", new { id = reservation.FinanceTransaction.ID });
+            }
+            
+            return View(reservation);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("ID,StoelNr,geanuleerd,ReservationDate,IDtransaction,IDevent,Name,LastName,Email")] Reservation reservation, int IDdiscount)
+        {
+            if (ModelState.IsValid)
+            {
+                var Event = await _context.Events.Include(e => e.Movie).Include(e => e.ReservedSeats).Include(e => e.AvailableSeats).Where(e => e.ID == reservation.IDevent).SingleAsync();
+
+                reservation.setReservation(
+                    Event,
+                    await _context.TicketDiscounts.FirstOrDefaultAsync(d => d.ID == IDdiscount));
+
+                _context.Add(reservation);  
+                _context.Add(reservation.FinanceTransaction);
+                _context.Update(reservation.getStoelNr());
+
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction("DetailPayment", "FinanceTransaction", new { id = reservation.FinanceTransaction.ID });
             }
             
             return View(reservation);
@@ -149,6 +179,23 @@ namespace Bioscoop.Controllers
             {
                 return NotFound();
             }
+
+            return View(reservation);
+        }
+
+        public  IActionResult printReservation(int? id)
+        {
+            String url = "https://" + this.Request.Host.Value + "/Reservations/TemplateReservationPDF/" + id;
+            PdfGenerator pdfGenerator = new PdfGenerator(_converter);
+
+            return   File(pdfGenerator.CreatePDF(pdfGenerator.getHTML(url), new PechkinPaperSize("120mm", "41mm")), "application/pdf");
+        }
+
+         public IActionResult TemplateReservationPDF(int? id){
+            
+            Reservation reservation = _context.Reservations.Include(m => m.StoelNr).FirstOrDefault(m => m.ID == id);
+            ViewData["event"] = _context.Events.Include(m => m.Movie).FirstOrDefault(m => m.ID == reservation.IDevent);
+            ViewBag.printUrl = true; 
 
             return View(reservation);
         }

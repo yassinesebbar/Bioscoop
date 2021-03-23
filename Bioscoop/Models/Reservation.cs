@@ -13,6 +13,9 @@ namespace Bioscoop.Models
     {
         [Key]
         public int ID {get; set;}
+        public String Name {get; set;}
+        public String LastName{get; set;}
+        public String Email{get; set;}
         public FinanceTransaction FinanceTransaction { get; set; }
         public Event Event { get; set; }
 

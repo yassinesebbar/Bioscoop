@@ -7,127 +7,79 @@
     List<TicketDiscount> TicketDiscounts = (List<TicketDiscount>) ViewData["TicketDiscounts"];
 }
 
-    @* <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style> *@
-
-    
-    <!-- Custom styles for this template -->
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+  <div class="col-md-5 p-lg-5 mx-auto my-5"> <h1 class="display-5 font-weight-normal">De <b>Bioscoop</b> van Nederland</h1> </div>
+  <div class="movie-logo"> <svg xmlns="http://www.w3.org/2000/svg" width="350" height="350" fill="none" stroke="currentColor"  stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24" focusable="false"><path d="M4.92 4.559c.117.046.213-.05.24-.12V3.12c-.027-.143-.123-.24-.24-.24H2.519c-.139 0-.235.097-.24.24v1.319c.005.07.101.166.24.12H4.92zM4.92 9.36a.335.335 0 0 0 .24-.24V7.8a.397.397 0 0 0-.24-.241H2.519c-.139.045-.235.142-.24.241v1.32c.005.114.101.21.24.24H4.92zM4.92 14.04c.117.016.213-.081.24-.24v-1.201c-.027-.173-.123-.269-.24-.239H2.519c-.139-.03-.235.066-.24.239V13.8c.005.159.101.255.24.24H4.92zM4.92 18.84c.117-.061.213-.156.24-.24v-1.32a.293.293 0 0 0-.24-.24H2.519c-.139.015-.235.111-.24.24v1.32c.005.084.101.18.24.24H4.92zM4.92 23.52c.117-.014.213-.111.24-.24v-1.32c-.027-.084-.123-.18-.24-.119H2.519c-.139-.061-.235.035-.24.119v1.32c.005.129.101.227.24.24H4.92zM4.92 28.199c.117.031.213-.066.24-.24V26.76c-.027-.158-.123-.256-.24-.24H2.519c-.139-.016-.235.082-.24.24v1.199c.005.174.101.271.24.24H4.92zM4.92 33a.395.395 0 0 0 .24-.24v-1.32a.335.335 0 0 0-.24-.24H2.519c-.139.029-.235.127-.24.24v1.32c.005.1.101.195.24.24H4.92zM30 4.559c-.168.046-.266-.05-.241-.12V3.12c-.025-.143.073-.24.241-.24h2.399c.087 0 .186.097.239.24v1.319c-.054.07-.152.166-.239.12H30zM30 9.36c-.168-.03-.266-.126-.241-.24V7.8c-.025-.099.073-.196.241-.241h2.399a.629.629 0 0 1 .239.241v1.32a.475.475 0 0 1-.239.24H30zM30 14.04c-.168.016-.266-.081-.241-.24v-1.201c-.025-.173.073-.269.241-.239h2.399c.087-.03.186.066.239.239V13.8c-.054.159-.152.255-.239.24H30zM30 18.84c-.168-.061-.266-.156-.241-.24v-1.32c-.024-.129.073-.225.241-.24h2.399c.087.015.186.111.239.24v1.32a.956.956 0 0 1-.239.24H30zM30 23.52c-.168-.014-.266-.111-.241-.24v-1.32c-.024-.084.073-.18.241-.119h2.399c.087-.061.186.035.239.119v1.32c-.054.129-.152.227-.239.24H30zM30 28.199c-.168.031-.266-.066-.241-.24V26.76c-.024-.158.073-.256.241-.24h2.399c.087-.016.186.082.239.24v1.199c-.054.174-.152.271-.239.24H30zM30 33c-.168-.045-.266-.141-.241-.24v-1.32c-.024-.113.073-.211.241-.24h2.399a.472.472 0 0 1 .239.24v1.32a.626.626 0 0 1-.239.24H30zM8.759 15.12h6.601L17.279 9l2.041 6.12h6.48l-5.281 3.839 2.04 6.121-5.28-3.721-5.159 3.721 1.92-6.121-5.281-3.839z"/></svg></div>
+  <div class="movie-logo movie-logo-2"><svg xmlns="http://www.w3.org/2000/svg" width="350" height="350" fill="none" stroke="currentColor"  stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24" focusable="false"><path d="M4.92 4.559c.117.046.213-.05.24-.12V3.12c-.027-.143-.123-.24-.24-.24H2.519c-.139 0-.235.097-.24.24v1.319c.005.07.101.166.24.12H4.92zM4.92 9.36a.335.335 0 0 0 .24-.24V7.8a.397.397 0 0 0-.24-.241H2.519c-.139.045-.235.142-.24.241v1.32c.005.114.101.21.24.24H4.92zM4.92 14.04c.117.016.213-.081.24-.24v-1.201c-.027-.173-.123-.269-.24-.239H2.519c-.139-.03-.235.066-.24.239V13.8c.005.159.101.255.24.24H4.92zM4.92 18.84c.117-.061.213-.156.24-.24v-1.32a.293.293 0 0 0-.24-.24H2.519c-.139.015-.235.111-.24.24v1.32c.005.084.101.18.24.24H4.92zM4.92 23.52c.117-.014.213-.111.24-.24v-1.32c-.027-.084-.123-.18-.24-.119H2.519c-.139-.061-.235.035-.24.119v1.32c.005.129.101.227.24.24H4.92zM4.92 28.199c.117.031.213-.066.24-.24V26.76c-.027-.158-.123-.256-.24-.24H2.519c-.139-.016-.235.082-.24.24v1.199c.005.174.101.271.24.24H4.92zM4.92 33a.395.395 0 0 0 .24-.24v-1.32a.335.335 0 0 0-.24-.24H2.519c-.139.029-.235.127-.24.24v1.32c.005.1.101.195.24.24H4.92zM30 4.559c-.168.046-.266-.05-.241-.12V3.12c-.025-.143.073-.24.241-.24h2.399c.087 0 .186.097.239.24v1.319c-.054.07-.152.166-.239.12H30zM30 9.36c-.168-.03-.266-.126-.241-.24V7.8c-.025-.099.073-.196.241-.241h2.399a.629.629 0 0 1 .239.241v1.32a.475.475 0 0 1-.239.24H30zM30 14.04c-.168.016-.266-.081-.241-.24v-1.201c-.025-.173.073-.269.241-.239h2.399c.087-.03.186.066.239.239V13.8c-.054.159-.152.255-.239.24H30zM30 18.84c-.168-.061-.266-.156-.241-.24v-1.32c-.024-.129.073-.225.241-.24h2.399c.087.015.186.111.239.24v1.32a.956.956 0 0 1-.239.24H30zM30 23.52c-.168-.014-.266-.111-.241-.24v-1.32c-.024-.084.073-.18.241-.119h2.399c.087-.061.186.035.239.119v1.32c-.054.129-.152.227-.239.24H30zM30 28.199c-.168.031-.266-.066-.241-.24V26.76c-.024-.158.073-.256.241-.24h2.399c.087-.016.186.082.239.24v1.199c-.054.174-.152.271-.239.24H30zM30 33c-.168-.045-.266-.141-.241-.24v-1.32c-.024-.113.073-.211.241-.24h2.399a.472.472 0 0 1 .239.24v1.32a.626.626 0 0 1-.239.24H30zM8.759 15.12h6.601L17.279 9l2.041 6.12h6.48l-5.281 3.839 2.04 6.121-5.28-3.721-5.159 3.721 1.92-6.121-5.281-3.839z"/></svg></div>
+</div>
+<div id="pdfUrl" style="display: none;">@ViewBag.url</div>
     
 <div class="container">
   <div class="py-5 text-center">
-    <img class="d-block mx-auto mb-4" src="~/images/@Movie.ImageCover" alt="" width="300" height="400" preserveAspectRatio="xMidYMid slice" >
+    <img class="d-block mx-auto mb-4" src="~/images/@Movie.ImageCover" alt="" width="300" height="400" preserveAspectRatio="xMidYMid slice" />
     <h2>@Movie.Title</h2>
     <p class="lead">@Movie.Description</p>
   </div>
-    <div class="row">
-      <div class="col-md-12 order-md-1">
-        <hr class="mb-4">
-        <form class="needs-validation" asp-controller="Reservations" asp-action="Create">
-            <div class="row">
-              <div class="col-md-6 mb-3 form-group">
-                  <h4 class="mb-3">Draai momenten</h4>
-                <select asp-for="IDevent" class="custom-select d-block w-100" required>
-                  @if(Events != null)
-                    {
-                        @foreach (var Event in Events)
-                        {
-                            <option value="@Event.ID">@Event.Start.ToString("dd-mm-yyyy") @Event.Start.ToString("hh:mm") - @Event.End.ToString("hh:mm")</option>
-                        }
-                    }
-                </select>
-              </div>
-            <div class="col-md-6 mb-3 form-group" >
-                <h4 class="mb-3 ">Discount</h4>
-              <select asp-for="IDdiscount" class="custom-select d-block w-100" required>
-                <option value="Geen">Geen</option>
-                @if(TicketDiscounts != null)
+
+  <div class="row">
+    <div class="col-md-12 order-md-1">
+      <hr class="mb-4">
+      <form class="needs-validation" asp-controller="Reservations" asp-action="Create">
+
+
+       <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="cc-name">Voornaam:</label>
+            <input asp-for="Name" type="text" class="form-control" placeholder="Naam" required>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="cc-number">Achternaam:</label>
+            <input asp-for="LastName" type="text" class="form-control" placeholder="Achternaam" required>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-12 mb-3">
+            <label for="cc-expiration">E-mail:</label>
+            <input asp-for="Email" type="text" class="form-control" placeholder="E-mail" required>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-6 mb-3 form-group">
+            <label for="Evenementen">Evenementen:</label>
+              <select asp-for="IDevent" class="custom-select d-block w-100" required>
+                @if(Events != null)
                   {
-                      @foreach (var TicketDiscount in TicketDiscounts)
+                      @foreach (var Event in Events)
                       {
-                          <option value="@TicketDiscount.ID">@TicketDiscount.description</option>
+                          <option value="@Event.ID">@Event.Start.ToString("dd-mm-yyyy") @Event.Start.ToString("hh:mm") - @Event.End.ToString("hh:mm")</option>
                       }
                   }
               </select>
-            </div>
+          </div>
+          <div class="col-md-6 mb-3 form-group" >
+            <label for="Korting">Speciale korting</label>
+            <select asp-for="IDdiscount" class="custom-select d-block w-100" required>
+              <option value="Geen">Geen</option>
+              @if(TicketDiscounts != null)
+                {
+                    @foreach (var TicketDiscount in TicketDiscounts)
+                    {
+                        <option value="@TicketDiscount.ID">@TicketDiscount.description</option>
+                    }
+                }
+            </select>
+          </div>
         </div>
-        <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+             <div class="col-md-2 mb-3">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Volgende</button>
+          </div>
       </form>
     </div>
+  </div>
 </div>
+    <hr>
+    <hr>
+    <hr>
 
-        @* <form enctype="multipart/form-data" asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ReleaseDate" class="control-label"></label>
-                <input asp-for="ReleaseDate" class="form-control" />
-                <span asp-validation-for="ReleaseDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ImageCover" class="control-label"></label>
-                <input asp-for="ImageCover" class="form-control" />
-                <span asp-validation-for="ImageCover" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Genre" class="control-label"></label>
-                <input asp-for="Genre" class="form-control" />
-                <span asp-validation-for="Genre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RatingGuide" class="control-label"></label>
-                <input asp-for="RatingGuide" class="form-control" />
-                <span asp-validation-for="RatingGuide" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="director" class="control-label"></label>
-                <input asp-for="director" class="form-control" />
-                <span asp-validation-for="director" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cast" class="control-label"></label>
-                <input asp-for="Cast" class="form-control" />
-                <span asp-validation-for="Cast" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DurationMin" class="control-label"></label>
-                <input asp-for="DurationMin" class="form-control" />
-                <span asp-validation-for="DurationMin" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-               <div class="form-group">
-                    <label asp-for="movieCover" class="control-label"></label>  
-                    <input asp-for="movieCover" class="form-control"/>  
-                    <span asp-validation-for="movieCover" class="text-danger"></span>    
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form> *@

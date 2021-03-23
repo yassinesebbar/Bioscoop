@@ -44,7 +44,7 @@ namespace Bioscoop.Controllers
         }
 
 
-        public async Task<IActionResult> EventsMovieFilter(int? id)
+        public async Task<IActionResult> EventsMovieFilterApp(int? id)
         {
             if (id == null)
             {
@@ -54,6 +54,22 @@ namespace Bioscoop.Controllers
             
             ViewData["Movie"] = await _context.Movies
                 .FirstOrDefaultAsync(m => m.ID == id);
+            ViewData["Events"] =   _context.Events.Where(e => e.IDmovie == id).ToList();
+            ViewData["TicketDiscounts"] = await _context.TicketDiscounts.ToListAsync();
+
+
+
+            return View();
+        }
+
+         public async Task<IActionResult> EventsMovieFilter(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            
+            ViewData["Movie"] = await _context.Movies.FirstOrDefaultAsync(m => m.ID == id);
             ViewData["Events"] =   _context.Events.Where(e => e.IDmovie == id).ToList();
             ViewData["TicketDiscounts"] = await _context.TicketDiscounts.ToListAsync();
 

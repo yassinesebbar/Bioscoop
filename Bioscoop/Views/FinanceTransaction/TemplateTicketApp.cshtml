@@ -1,0 +1,28 @@
+@model Bioscoop.Models.Reservation;
+        
+      
+@{  
+    ViewBag.Title = "Employee Data";  
+    Event Event = (Event)ViewData["event"]; 
+}  
+   
+    <div class="card mb-12 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal text-center">Ticket</h4>
+      </div>
+      <div class="card-body">
+        <h4 class="card-title pricing-card-title centered text-center">@Event.Movie.Title</h4>
+        <ul class="list-unstyled mt-3 mb-4 text-center">
+          <li>@Event.Start.ToString("HH:mm") - @Event.End.ToString("HH:mm")</li>
+          <li>@Event.Hall.Name - @Model.StoelNr.ChairNr</li>
+        </ul>
+      </div><div class="card-footer">
+        <h4 class="my-0 font-weight-normal text-center"><small class="text-muted">@Model.ID</small></h4>
+      </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            $(".footer").hide();
+        });
+    </script>

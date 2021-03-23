@@ -1,3 +1,4 @@
+C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\libwkhtmltox.dll
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\Bioscoop.exe
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\assets\brand\amer-film-inst-2.svg
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\assets\brand\bootstrap-outline.svg
@@ -9,10 +10,18 @@ C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\css\movie-logo.css
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\css\site.css
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\favicon.ico
+C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\images\061b07c5-dfb1-420c-89fc-0c6462a31d1a_StarWarsMoviePoster1977.jpg
+C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\images\19218f46-0211-43f0-ab30-eeba9ebacac9_StarWarsMoviePoster1977.jpg
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\images\356abac5-f11f-40e1-827e-dfb02b0c84a2_91GjsAnebsL._AC_SL1500_.jpg
+C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\images\46602cad-83d5-4d75-9e70-645f170b0d78_StarWarsMoviePoster1977.jpg
+C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\images\5deaf8b2-4c82-4671-9747-7f17b7af9b42_StarWarsMoviePoster1977.jpg
+C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\images\643412d7-524b-4aa5-9448-e262a44c2bf8_StarWarsMoviePoster1977.jpg
+C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\images\76c7c0c8-2be5-4b9f-afb4-2ea261f4ca76_StarWarsMoviePoster1977.jpg
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\images\8375cfac-359c-48c8-bc62-f3998a6ca597_91GjsAnebsL._AC_SL1500_.jpg
+C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\images\a350e82c-aaba-4b61-9341-34a690964211_StarWarsMoviePoster1977.jpg
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\images\aa85aac0-df83-4fd2-926e-b868da9769de_download (1).jfif
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\images\e752f3be-9ca7-47dc-8c57-17d189a9fef2_rick.jpg
+C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\js\downloadPdf.js
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\js\site.js
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
@@ -54,9 +63,11 @@ C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\publish\appsettings.json
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\publish\Bioscoop.deps.json
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\publish\Bioscoop.runtimeconfig.json
+C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\Bioscoop.db
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\Bioscoop.dll
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\Bioscoop.runtimeconfig.json
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\Bioscoop.pdb
+C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\DinkToPdf.dll
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\Humanizer.dll
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\WebMatrix.Data.dll
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\bin\Debug\net5.0\publish\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll

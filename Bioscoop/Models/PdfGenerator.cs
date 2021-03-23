@@ -26,24 +26,22 @@ namespace Bioscoop.Models
             _converter = converter;
         }
 
-        public Byte[] CreatePDF(String html){
+        public Byte[] CreatePDF(String html , PechkinPaperSize papersize){
 
 
          var globalSettings = new GlobalSettings
             {
                 ColorMode = ColorMode.Color,
                 Orientation = Orientation.Portrait,
-                PaperSize = PaperKind.A6,
-                Margins = new MarginSettings { Top = 10 },
+                PaperSize = papersize,
+                Margins = new MarginSettings { Top = 0 ,Bottom=0 ,Left=0,Right=0},                
                 DocumentTitle = "PDF Report"
             };
             var objectSettings = new ObjectSettings
             {
                 PagesCount = true,
                 HtmlContent = html,
-                WebSettings = { DefaultEncoding = "utf-8", UserStyleSheet =  "wwwroot/assets/dist/css/bootstrap.min.css" },
-                HeaderSettings = { FontName = "Arial", FontSize = 9, Right = "Page [page] of [toPage]", Line = true },
-                FooterSettings = { FontName = "Arial", FontSize = 9, Line = true, Center = "Report Footer" }
+                WebSettings = { DefaultEncoding = "utf-8", UserStyleSheet =  "wwwroot/assets/dist/css/bootstrap.min.css" }
             };
 
             var pdf = new HtmlToPdfDocument()

@@ -1,0 +1,24 @@
+
+  
+@model Bioscoop.Models.Reservation;
+            
+@{  
+    ViewBag.Title = "Employee Data";  
+    Event Event = (Event)ViewData["event"]; 
+}  
+  
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row shadow-sm position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">Reserveringscode: @Model.ID</strong>
+          <h3 class="mb-0">@Event.Movie.Title</h3>
+          <div class="mb-1 text-muted">@Event.Start</div>
+          <p class="card-text mb-auto">Neem deze reservering mee om je ticket bij de balie of op een van onze schermen in de Bioscoop te printen.</p>
+        </div>
+      </div>
+    
+
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            $(".footer").hide();
+        });
+    </script>

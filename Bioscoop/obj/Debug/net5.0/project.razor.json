@@ -15613,6 +15613,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Home\\IndexApp.cshtml",
+      "TargetPath": "Views\\Home\\IndexApp.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
@@ -15620,6 +15625,11 @@
     {
       "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Events\\Details.cshtml",
       "TargetPath": "Views\\Events\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\FinanceTransaction\\TemplateTicketApp.cshtml",
+      "TargetPath": "Views\\FinanceTransaction\\TemplateTicketApp.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15658,8 +15668,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\FinanceTransaction\\TemplateTicketTablet.cshtml",
-      "TargetPath": "Views\\FinanceTransaction\\TemplateTicketTablet.cshtml",
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Events\\EventsMovieFilterApp.cshtml",
+      "TargetPath": "Views\\Events\\EventsMovieFilterApp.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15693,8 +15703,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\FinanceTransaction\\DetailPayment.cshtml",
+      "TargetPath": "Views\\FinanceTransaction\\DetailPayment.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Reservations\\Details.cshtml",
       "TargetPath": "Views\\Reservations\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\FinanceTransaction\\DetailPaymentApp.cshtml",
+      "TargetPath": "Views\\FinanceTransaction\\DetailPaymentApp.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15758,11 +15778,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\FinanceTransaction\\DetailPaymentTablet.cshtml",
-      "TargetPath": "Views\\FinanceTransaction\\DetailPaymentTablet.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\TicketDiscount\\Details.cshtml",
       "TargetPath": "Views\\TicketDiscount\\Details.cshtml",
       "FileKind": "mvc"
@@ -15818,8 +15833,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Demo\\DemoViewAsPDF.cshtml",
-      "TargetPath": "Views\\Demo\\DemoViewAsPDF.cshtml",
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Reservations\\TemplateReservationPDF.cshtml",
+      "TargetPath": "Views\\Reservations\\TemplateReservationPDF.cshtml",
       "FileKind": "mvc"
     },
     {

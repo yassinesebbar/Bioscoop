@@ -79,7 +79,7 @@ namespace Bioscoop.Controllers
         }
        
     
-        public async Task<IActionResult> DetailPaymentTablet(int? id)
+        public async Task<IActionResult> DetailPaymentApp(int? id)
         {
             var financeTransaction = await _context.FinanceTransactions
             .FirstOrDefaultAsync(m => m.ID == id);
@@ -87,7 +87,19 @@ namespace Bioscoop.Controllers
             return View(financeTransaction);
         }
 
-        public async Task<IActionResult> CreatePaymentTablet(int? id)
+          public async Task<IActionResult> DetailPayment(int? id)
+        {
+            
+            var financeTransaction = await _context.FinanceTransactions.Include(m => m.Discount)
+            .FirstOrDefaultAsync(m => m.ID == id);
+
+            var reservation = await _context.Reservations.Include(m => m.Event).Include(m => m.Event.Movie).FirstOrDefaultAsync(m => m.FinanceTransaction == financeTransaction);
+            ViewData["reservation"] = reservation;
+    
+            return View(financeTransaction);
+        }
+
+        public async Task<IActionResult> CreatePaymentApp(int? id)
         {
             var financeTransaction = await _context.FinanceTransactions.FirstOrDefaultAsync(m => m.ID == id);
 
@@ -106,24 +118,55 @@ namespace Bioscoop.Controllers
             _context.Update(financeTransaction);
             await _context.SaveChangesAsync();
 
-            TempData["url"]  = "https://" + this.Request.Host.Value + "/FinanceTransaction/PrintTicketTablet/" + id;
+            TempData["url"]  = "https://" + this.Request.Host.Value + "/FinanceTransaction/PrintTicketApp/" + reservation.ID;
+
+            return RedirectToAction("IndexApp", "Home");
+        }
+
+             public async Task<IActionResult> CreatePayment(int? id)
+        {
+            var financeTransaction = await _context.FinanceTransactions.FirstOrDefaultAsync(m => m.ID == id);
+
+            var reservation = await _context.Reservations.FirstOrDefaultAsync(m => m.FinanceTransaction == financeTransaction);
+
+            Payment payment = new Payment();
+            payment.paymentMethod = PaymentMethod.MoneyTransfer;
+            payment.reservation = reservation;
+            payment.Banknr = new Random().Next(100000000, 999999999).ToString();
+            payment.CouponCode = null;
+            payment.Amount = financeTransaction.totalPrice;
+            financeTransaction.paymentIsComplete = true;
+
+            _context.Add(payment);
+            _context.Update(reservation);
+            _context.Update(financeTransaction);
+            await _context.SaveChangesAsync();
+
+            TempData["url"]  = "https://" + this.Request.Host.Value + "/Reservations/printReservation/" + reservation.ID;
 
             return RedirectToAction("Index", "Home");
         }
 
-
-           public IActionResult PrintTicketTablet(int? id)
+           public  IActionResult PrintTicketApp(int? id)
         {
 
-            String url = "https://" + this.Request.Host.Value + "/FinanceTransaction/TemplateTicketTablet/" + id;
+
+            String url = "https://" + this.Request.Host.Value + "/FinanceTransaction/TemplateTicketApp/" + id;
             PdfGenerator pdfGenerator = new PdfGenerator(_converter);
 
-            return   File(pdfGenerator.CreatePDF(pdfGenerator.getHTML(url)), "application/pdf");
+
+            return   File(pdfGenerator.CreatePDF(pdfGenerator.getHTML(url), new PechkinPaperSize("60mm", "57mm")), "application/pdf");
 
         }
 
-        public IActionResult TemplateTicketTablet(int? id){
-            return View();
+        public IActionResult TemplateTicketApp(int? id){
+            
+            Reservation reservation = _context.Reservations.Include(m => m.StoelNr).FirstOrDefault(m => m.ID == id);
+            ViewData["event"] = _context.Events.Include(m => m.Hall).Include(m => m.Movie).FirstOrDefault(m => m.ID == reservation.IDevent);
+
+            ViewBag.printUrl = true; 
+
+            return View(reservation);
         }
 
         // GET: FinanceTransaction/Edit/5
