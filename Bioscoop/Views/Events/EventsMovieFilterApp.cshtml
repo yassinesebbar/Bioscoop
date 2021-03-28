@@ -14,7 +14,7 @@
     <p class="lead">@Movie.Description</p>
   </div>
     <div class="row">
-      <div class="col-md-12 order-md-1">
+      <div class="col-md-6 order-md-1">
         <hr class="mb-4">
         <form class="needs-validation" asp-controller="Reservations" asp-action="CreateApp">
             <div class="row">
@@ -47,5 +47,22 @@
         <hr class="mb-4">
         <button class="btn btn-primary btn-lg btn-block" type="submit">Volgende</button>
       </form>
-    </div>
+      </div>
+
+
+       <div class="col-md-6 order-md-1">
+        <hr class="mb-4">
+          <h5 class="mb-3 ">Heb je al gereserveerd?</h5>
+          <form  asp-controller="FinanceTransaction" asp-action="GetTicket">
+            <div class="row">
+              <div class="form-group col-md-6">
+                <input asp-for="ID" type="text" class="form-control" placeholder="Reserveringsnummer">
+              </div>
+                <div class="form-group col-md-6">
+                  <button type="submit" class="btn btn-primary btn-block">Ticket</button>
+                </div>
+                </div>
+                <input asp-for="IDevent" value="@Movie.ID" type="text" class="invisible" placeholder="Reserveringsnummer">
+          </form>
+       </div>
 </div>

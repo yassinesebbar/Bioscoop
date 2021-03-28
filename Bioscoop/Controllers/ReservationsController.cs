@@ -69,8 +69,6 @@ namespace Bioscoop.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateApp([Bind("ID,StoelNr,geanuleerd,ReservationDate,IDtransaction,IDevent")] Reservation reservation, int IDdiscount)
         {
-            if (ModelState.IsValid)
-            {
                 var Event = await _context.Events.Include(e => e.Movie).Include(e => e.ReservedSeats).Include(e => e.AvailableSeats).Where(e => e.ID == reservation.IDevent).SingleAsync();
 
                 reservation.setReservation(
@@ -84,17 +82,13 @@ namespace Bioscoop.Controllers
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction("DetailPaymentApp", "FinanceTransaction", new { id = reservation.FinanceTransaction.ID });
-            }
             
-            return View(reservation);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,StoelNr,geanuleerd,ReservationDate,IDtransaction,IDevent,Name,LastName,Email")] Reservation reservation, int IDdiscount)
         {
-            if (ModelState.IsValid)
-            {
                 var Event = await _context.Events.Include(e => e.Movie).Include(e => e.ReservedSeats).Include(e => e.AvailableSeats).Where(e => e.ID == reservation.IDevent).SingleAsync();
 
                 reservation.setReservation(
@@ -108,9 +102,7 @@ namespace Bioscoop.Controllers
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction("DetailPayment", "FinanceTransaction", new { id = reservation.FinanceTransaction.ID });
-            }
             
-            return View(reservation);
         }
 
         // GET: Reservations/Edit/5

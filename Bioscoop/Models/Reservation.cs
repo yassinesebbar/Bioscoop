@@ -100,8 +100,11 @@ namespace Bioscoop.Models
         {
             this.Event = SingleEvents;
             this.FinanceTransaction = new FinanceTransaction();
-;
-            this.FinanceTransaction.setDiscount(SingleDiscount);
+;           
+            if(SingleDiscount != null){
+                this.FinanceTransaction.setDiscount(SingleDiscount);
+            }
+
             this.setTransaction();
             this.setStoelNr();
             this.Event.reserveSeat(this.StoelNr, null);

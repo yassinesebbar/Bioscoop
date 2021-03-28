@@ -61,7 +61,7 @@
           <div class="col-md-6 mb-3 form-group" >
             <label for="Korting">Speciale korting</label>
             <select asp-for="IDdiscount" class="custom-select d-block w-100" required>
-              <option value="Geen">Geen</option>
+              <option value="0">Geen</option>
               @if(TicketDiscounts != null)
                 {
                     @foreach (var TicketDiscount in TicketDiscounts)

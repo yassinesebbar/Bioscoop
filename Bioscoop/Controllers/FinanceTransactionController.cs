@@ -123,6 +123,23 @@ namespace Bioscoop.Controllers
             return RedirectToAction("IndexApp", "Home");
         }
 
+        public async Task<IActionResult> GetTicket(int? ID, int? IDevent)
+        {
+
+            var reservation = await _context.Reservations.Include(m => m.Event).Include(m => m.Event.Movie).FirstOrDefaultAsync(m => m.ID == ID);
+            var movie = await _context.Events.Include(m => m.Movie).FirstOrDefaultAsync(m => m.ID == IDevent);
+
+
+            if(reservation != null){
+                if(IDevent == movie.Movie.ID){
+                    TempData["url"]  = "https://" + this.Request.Host.Value + "/FinanceTransaction/PrintTicketApp/" + reservation.ID;
+                }
+            }
+
+
+            return RedirectToAction("IndexApp", "Home");
+        }
+
              public async Task<IActionResult> CreatePayment(int? id)
         {
             var financeTransaction = await _context.FinanceTransactions.FirstOrDefaultAsync(m => m.ID == id);
