@@ -59,7 +59,6 @@ namespace Bioscoop.Controllers
 
             if (ModelState.IsValid)
             {
-                hall.SetSeats(_context);
                 _context.Add(hall);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

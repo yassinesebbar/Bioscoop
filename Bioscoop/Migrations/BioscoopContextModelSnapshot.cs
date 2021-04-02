@@ -258,6 +258,12 @@ namespace Bioscoop.Migrations
                     b.Property<bool>("geanuleerd")
                         .HasColumnType("INTEGER");
 
+                    b.Property<bool>("haveBeenPrinted")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("printTicket")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("ID");
 
                     b.HasIndex("EventID");

@@ -9698,11 +9698,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Bioscoop.csproj",
+      "projectUniqueName": "C:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\bioscoop\\Bioscoop.csproj",
       "projectName": "Bioscoop",
-      "projectPath": "C:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Bioscoop.csproj",
+      "projectPath": "C:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\bioscoop\\Bioscoop.csproj",
       "packagesPath": "C:\\Users\\yassine.000\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\obj\\",
+      "outputPath": "C:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\bioscoop\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

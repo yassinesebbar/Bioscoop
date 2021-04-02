@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -30,22 +31,25 @@ namespace Bioscoop.Models
             return this.Seats;
         }
 
-        public void SetSeats(BioscoopContext db)
-        {   
+        public void SetSeats(BioscoopContext db, Event ev)
+        {  
+            ev.AvailableSeats = new List<Chair>();
+
               if(SeatsPerRow != 0 && Rows != 0)
             {
                 NumSeats = SeatsPerRow * Rows;
                 String[] alphabet = new String[] {"A", "B","C","D","E","F","G","H","I","J","K","L","M","N","O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
                 Seats = new List<Chair>();
 
-                for (int row = 0; row <= Rows; row++) 
+                for (int row = 0; row < Rows; row++) 
                 {
-                    for (int seat = 0; seat <= SeatsPerRow; seat++) 
+                    for (int seat = 1; seat <= SeatsPerRow; seat++) 
                     {
                        Chair objSeat = new Chair();
                        objSeat.ChairNr = alphabet[row] + seat;
 
                         this.Seats.Add(objSeat);
+                        ev.AvailableSeats.Add(objSeat);
                         db.Add(objSeat);
                     }
                 }

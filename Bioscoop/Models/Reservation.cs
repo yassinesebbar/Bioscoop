@@ -26,6 +26,11 @@ namespace Bioscoop.Models
         public int IDtransaction { get; set; }
         public int IDevent { get; set; }
         public int IDdiscount { get; set; }
+        public Boolean haveBeenPrinted { get; set;}
+        public Boolean printTicket { get; set; }
+
+
+
         public int getIDtransaction()
         {
             return this.IDtransaction;

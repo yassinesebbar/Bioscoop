@@ -133,6 +133,9 @@ namespace Bioscoop.Controllers
             if(reservation != null){
                 if(IDevent == movie.Movie.ID){
                     TempData["url"]  = "https://" + this.Request.Host.Value + "/FinanceTransaction/PrintTicketApp/" + reservation.ID;
+                    reservation.printTicket=true;
+                    _context.Update(reservation);
+                    await _context.SaveChangesAsync();
                 }
             }
 
@@ -166,14 +169,21 @@ namespace Bioscoop.Controllers
 
            public  IActionResult PrintTicketApp(int? id)
         {
+           Reservation reservation = _context.Reservations.FirstOrDefault(m => m.ID == id);
 
+            if(reservation.printTicket == true && reservation.haveBeenPrinted == false){
+                String url = "https://" + this.Request.Host.Value + "/FinanceTransaction/TemplateTicketApp/" + id;
+                PdfGenerator pdfGenerator = new PdfGenerator(_converter);
 
-            String url = "https://" + this.Request.Host.Value + "/FinanceTransaction/TemplateTicketApp/" + id;
-            PdfGenerator pdfGenerator = new PdfGenerator(_converter);
+                reservation.haveBeenPrinted = true;
 
+                _context.Update(reservation);
+                _context.SaveChangesAsync();
 
-            return   File(pdfGenerator.CreatePDF(pdfGenerator.getHTML(url), new PechkinPaperSize("60mm", "57mm")), "application/pdf");
-
+                return   File(pdfGenerator.CreatePDF(pdfGenerator.getHTML(url), new PechkinPaperSize("60mm", "57mm")), "application/pdf");
+            }
+               
+            return null;
         }
 
         public IActionResult TemplateTicketApp(int? id){

@@ -18,6 +18,7 @@ namespace Bioscoop.Models
         public DateTime DateTimeTransaction { get; set; }
         public int IDdiscount {get; set;}
         public Boolean paymentIsComplete {get; set;}
+        
 
         public int getID()
         {

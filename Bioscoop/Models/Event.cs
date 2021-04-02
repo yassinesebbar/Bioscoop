@@ -43,7 +43,6 @@ namespace Bioscoop.Models
             if(this.Movie.ThreeD){
                 this.BasePrijs += 2.5;
             }
-
             if(this.Movie.DurationMin <= 120){
                 this.BasePrijs += 8.50;
             }else{
@@ -53,11 +52,6 @@ namespace Bioscoop.Models
         public List<Chair> getReservedSeats()
         {
             return this.ReservedSeats;
-        }
-
-        public void setReservedSeats(List<Chair> ReservedSeats)
-        {
-            this.ReservedSeats = ReservedSeats;
         }
 
         public List<Chair> getAvailableSeats()
@@ -72,13 +66,8 @@ namespace Bioscoop.Models
 
         public void setHallInformation(BioscoopContext db){
             if(Hall != null){
-                this.AvailableSeats = Hall.getSeats();
+                Hall.SetSeats(db, this);
             }
-
-            foreach(Chair seat in this.AvailableSeats){
-                db.Update(seat);
-            }
-
          }
 
          public Chair getRandomChair(){
