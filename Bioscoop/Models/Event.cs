@@ -89,5 +89,18 @@ namespace Bioscoop.Models
 
             return false;
          }
+
+         
+         public Boolean unReserveSeat(Chair seat, BioscoopContext db = null){
+            if(ReservedSeats.Contains(seat)){
+                ReservedSeats.Remove(seat);
+                AvailableSeats.Add(seat);
+            if(db != null){
+                db.Update(seat);
+            }
+                return true;
+            }
+            return false;
+         }
     }
 }

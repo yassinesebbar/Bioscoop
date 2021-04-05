@@ -99,6 +99,39 @@ namespace Bioscoop.Controllers
             return View(financeTransaction);
         }
 
+        
+          public async Task<IActionResult> CancelPayment(int? id)
+        {
+            
+            var financeTransaction = await _context.FinanceTransactions.Include(m => m.Discount)
+            .FirstOrDefaultAsync(m => m.ID == id);
+
+            var reservation = await _context.Reservations.Include(m => m.Event).Include(m => m.StoelNr).Include(e => e.Event.ReservedSeats).Include(e => e.Event.AvailableSeats).FirstOrDefaultAsync(m => m.FinanceTransaction == financeTransaction);
+            reservation.FinanceTransaction = null;
+            _context.FinanceTransactions.Remove(financeTransaction);
+            reservation.Event.unReserveSeat(reservation.StoelNr, _context);
+            _context.Reservations.Remove(reservation);
+            await _context.SaveChangesAsync();
+    
+            return RedirectToAction("Index", "Home");
+        }
+
+            public async Task<IActionResult> CancelPaymentApp(int? id)
+        {
+            
+            var financeTransaction = await _context.FinanceTransactions.Include(m => m.Discount).FirstOrDefaultAsync(m => m.ID == id);
+
+            var reservation = await _context.Reservations.Include(m => m.Event).Include(m => m.StoelNr).Include(e => e.Event.ReservedSeats).Include(e => e.Event.AvailableSeats).FirstOrDefaultAsync(m => m.FinanceTransaction == financeTransaction);
+            reservation.FinanceTransaction = null;
+            _context.FinanceTransactions.Remove(financeTransaction);
+            reservation.Event.unReserveSeat(reservation.StoelNr, _context);
+            _context.Reservations.Remove(reservation);
+            await _context.SaveChangesAsync();
+    
+            return RedirectToAction("IndexApp", "Home");
+        }
+
+
         public async Task<IActionResult> CreatePaymentApp(int? id)
         {
             var financeTransaction = await _context.FinanceTransactions.FirstOrDefaultAsync(m => m.ID == id);
@@ -113,6 +146,7 @@ namespace Bioscoop.Controllers
             payment.Amount = financeTransaction.totalPrice;
             financeTransaction.paymentIsComplete = true;
 
+            reservation.printTicket = true;
             _context.Add(payment);
             _context.Update(reservation);
             _context.Update(financeTransaction);
@@ -127,13 +161,12 @@ namespace Bioscoop.Controllers
         {
 
             var reservation = await _context.Reservations.Include(m => m.Event).Include(m => m.Event.Movie).FirstOrDefaultAsync(m => m.ID == ID);
-            var movie = await _context.Events.Include(m => m.Movie).FirstOrDefaultAsync(m => m.ID == IDevent);
+            var ev = await _context.Events.Include(m => m.Movie).FirstOrDefaultAsync(m => m.Movie.ID == IDevent);
 
 
             if(reservation != null){
-                if(IDevent == movie.Movie.ID){
+                if(IDevent == ev.Movie.ID){
                     TempData["url"]  = "https://" + this.Request.Host.Value + "/FinanceTransaction/PrintTicketApp/" + reservation.ID;
-                    reservation.printTicket=true;
                     _context.Update(reservation);
                     await _context.SaveChangesAsync();
                 }
@@ -171,19 +204,14 @@ namespace Bioscoop.Controllers
         {
            Reservation reservation = _context.Reservations.FirstOrDefault(m => m.ID == id);
 
-            if(reservation.printTicket == true && reservation.haveBeenPrinted == false){
-                String url = "https://" + this.Request.Host.Value + "/FinanceTransaction/TemplateTicketApp/" + id;
-                PdfGenerator pdfGenerator = new PdfGenerator(_converter);
-
+            String url = "";
+            PdfGenerator pdfGenerator = new PdfGenerator(_converter);
+                url = "https://" + this.Request.Host.Value + "/FinanceTransaction/TemplateTicketApp/" + id;
+                String html = pdfGenerator.getHTML(url);
                 reservation.haveBeenPrinted = true;
-
                 _context.Update(reservation);
                 _context.SaveChangesAsync();
-
-                return   File(pdfGenerator.CreatePDF(pdfGenerator.getHTML(url), new PechkinPaperSize("60mm", "57mm")), "application/pdf");
-            }
-               
-            return null;
+                return   File(pdfGenerator.CreatePDF(html, new PechkinPaperSize("60mm", "57mm")), "application/pdf"); 
         }
 
         public IActionResult TemplateTicketApp(int? id){

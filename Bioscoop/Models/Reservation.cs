@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
 using Bioscoop.Data;
+using System.Globalization;
 
 
 namespace Bioscoop.Models
@@ -105,6 +106,8 @@ namespace Bioscoop.Models
         {
             this.Event = SingleEvents;
             this.FinanceTransaction = new FinanceTransaction();
+            this.haveBeenPrinted = false;
+            this.printTicket = false;
 ;           
             if(SingleDiscount != null){
                 this.FinanceTransaction.setDiscount(SingleDiscount);
@@ -113,12 +116,12 @@ namespace Bioscoop.Models
             this.setTransaction();
             this.setStoelNr();
             this.Event.reserveSeat(this.StoelNr, null);
-            this.setReservationDate(new DateTime());
+            this.setReservationDate(DateTime.Now);
         }
 
         public void setTransaction(){
                 this.FinanceTransaction.setBasePrice(this.Event.getBasePrijs());
-                this.FinanceTransaction.setDateTimeTransaction(new DateTime());
+                this.FinanceTransaction.setDateTimeTransaction(DateTime.Now);
                 this.FinanceTransaction.setTotalPrice();
         }
     }
