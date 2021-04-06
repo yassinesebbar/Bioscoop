@@ -12,6 +12,8 @@ using Bioscoop.Data;
 using Microsoft.EntityFrameworkCore;
 using DinkToPdf;
 using DinkToPdf.Contracts;
+using Microsoft.AspNetCore.Identity;
+
 
 namespace Bioscoop
 {
@@ -29,9 +31,11 @@ namespace Bioscoop
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
+            services.AddSingleton(typeof(IConfiguration), Configuration);
 
-             services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
-
+            services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
+            services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultUI().AddEntityFrameworkStores<BioscoopContext>().AddRoles<IdentityRole>();
             services.AddControllersWithViews();
             services.AddHttpContextAccessor();
 
@@ -64,6 +68,7 @@ namespace Bioscoop
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseAuthentication();
 
             app.UseRouting();
 
@@ -74,6 +79,8 @@ namespace Bioscoop
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapRazorPages();
             });
         }
     }

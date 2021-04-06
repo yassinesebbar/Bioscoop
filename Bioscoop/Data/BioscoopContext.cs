@@ -1,10 +1,12 @@
 using System.Transactions;
 using Microsoft.EntityFrameworkCore;
 using Bioscoop.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Bioscoop.Data
 {
-    public class BioscoopContext : DbContext
+    public class BioscoopContext : IdentityDbContext
     {
         public BioscoopContext (DbContextOptions<BioscoopContext> options)
             : base(options)
