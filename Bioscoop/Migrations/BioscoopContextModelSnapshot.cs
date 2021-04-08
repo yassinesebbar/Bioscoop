@@ -150,6 +150,41 @@ namespace Bioscoop.Migrations
                     b.ToTable("Halls");
                 });
 
+            modelBuilder.Entity("Bioscoop.Models.LostItem", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("DateFound")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("DateLost")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("EmployeeFound")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("EmployeeRelease")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("ItemFound")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("LocationFound")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("LostItems");
+                });
+
             modelBuilder.Entity("Bioscoop.Models.Movie", b =>
                 {
                     b.Property<int>("ID")

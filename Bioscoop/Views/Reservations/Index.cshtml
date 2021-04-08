@@ -4,56 +4,70 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.StoelNr)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.geanuleerd)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReservationDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IDtransaction)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IDevent)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.StoelNr)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.geanuleerd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReservationDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IDtransaction)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IDevent)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<partial name="~/Views/Dashboard/DashboardHeader.cshtml" />
+
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+
+    <h1>Index</h1>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.StoelNr)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.geanuleerd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ReservationDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IDtransaction)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IDevent)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StoelNr)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.geanuleerd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReservationDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IDtransaction)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IDevent)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+</main>
+
+<partial name="~/Views/Dashboard/DashboardFooter.cshtml" />
+

@@ -245,3 +245,7 @@ C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\obj\Debug\net5.0\Bioscoo
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\obj\Debug\net5.0\Razor\Views\Admin\Index.cshtml.g.cs
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\obj\Debug\net5.0\Razor\Views\Role\Create.cshtml.g.cs
 C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\obj\Debug\net5.0\Razor\Views\Role\Index.cshtml.g.cs
+C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\obj\Debug\net5.0\Razor\Views\Dashboard\DashboardFooter.cshtml.g.cs
+C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\obj\Debug\net5.0\Razor\Views\Dashboard\DashboardHeader.cshtml.g.cs
+C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\obj\Debug\net5.0\Razor\Views\Dashboard\DashboardMain template.cshtml.g.cs
+C:\Users\yassine.000\Documents\GitHub\Bioscoop\Bioscoop\obj\Debug\net5.0\Razor\Views\Dashboard\Index.cshtml.g.cs

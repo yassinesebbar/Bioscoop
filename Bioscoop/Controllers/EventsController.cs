@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Bioscoop.Data;
 using Bioscoop.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Bioscoop.Controllers
 {
@@ -20,14 +21,20 @@ namespace Bioscoop.Controllers
         }
 
         // GET: Events
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Index()
         {
+            ViewData["Dashboard"] = true;
+
             return View(await _context.Events.ToListAsync());
         }
 
         // GET: Events/Details/5
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Details(int? id)
         {
+            ViewData["Dashboard"] = true;
+
             if (id == null)
             {
                 return NotFound();
@@ -46,6 +53,7 @@ namespace Bioscoop.Controllers
 
         public async Task<IActionResult> EventsMovieFilterApp(int? id)
         {
+
             if (id == null)
             {
                 return NotFound();
@@ -79,8 +87,11 @@ namespace Bioscoop.Controllers
         }
 
         // GET: Events/Create
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Create()
         {
+            ViewData["Dashboard"] = true;
+
             ViewData["Halls"] = await _context.Halls.ToListAsync();
             ViewData["Movies"] = await _context.Movies.ToListAsync();
 
@@ -92,8 +103,11 @@ namespace Bioscoop.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Create([Bind("ID,Start,End, IDhall, IDmovie")] Event @event)
         {
+            ViewData["Dashboard"] = true;
+
             @event.Movie = await _context.Movies
                 .FirstOrDefaultAsync(m => m.ID == @event.IDmovie);
 
@@ -119,8 +133,11 @@ namespace Bioscoop.Controllers
         }
 
         // GET: Events/Edit/5
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Edit(int? id)
         {
+            ViewData["Dashboard"] = true;
+
             if (id == null)
             {
                 return NotFound();
@@ -139,8 +156,11 @@ namespace Bioscoop.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Edit(int id, [Bind("ID,Start,End")] Event @event)
         {
+            ViewData["Dashboard"] = true;
+
             if (id != @event.ID)
             {
                 return NotFound();
@@ -170,8 +190,11 @@ namespace Bioscoop.Controllers
         }
 
         // GET: Events/Delete/5
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Delete(int? id)
         {
+            ViewData["Dashboard"] = true;
+
             if (id == null)
             {
                 return NotFound();
@@ -190,8 +213,11 @@ namespace Bioscoop.Controllers
         // POST: Events/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            ViewData["Dashboard"] = true;
+
             var @event = await _context.Events.FindAsync(id);
             _context.Events.Remove(@event);
             await _context.SaveChangesAsync();

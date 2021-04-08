@@ -21,6 +21,7 @@ namespace Bioscoop.Data
         public DbSet<Reservation> Reservations{get;set;}
         public DbSet<Chair> Chairs{get;set;}
         public DbSet<Payment> Payments{get;set;}
+        public DbSet<LostItem> LostItems{get;set;}
 
     }
 }

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Bioscoop.Data;
 using Bioscoop.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Bioscoop.Controllers
 {
@@ -20,14 +21,18 @@ namespace Bioscoop.Controllers
         }
 
         // GET: Halls
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Index()
         {
+            ViewData["Dashboard"] = true;
             return View(await _context.Halls.ToListAsync());
         }
 
         // GET: Halls/Details/5
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Details(int? id)
         {
+            ViewData["Dashboard"] = true;
             if (id == null)
             {
                 return NotFound();
@@ -44,8 +49,10 @@ namespace Bioscoop.Controllers
         }
 
         // GET: Halls/Create
+        [Authorize(Roles = "admin, user")]
         public IActionResult Create()
         {
+            ViewData["Dashboard"] = true;
             return View();
         }
 
@@ -54,8 +61,10 @@ namespace Bioscoop.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Create([Bind("ID,Description,Rows,SeatsPerRow, Name")] Hall hall)
         {
+            ViewData["Dashboard"] = true;
 
             if (ModelState.IsValid)
             {
@@ -67,8 +76,10 @@ namespace Bioscoop.Controllers
         }
 
         // GET: Halls/Edit/5
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Edit(int? id)
         {
+            ViewData["Dashboard"] = true;
             if (id == null)
             {
                 return NotFound();
@@ -87,8 +98,10 @@ namespace Bioscoop.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Edit(int id, [Bind("ID,Description,Rows,SeatsPerRow")] Hall hall)
         {
+            ViewData["Dashboard"] = true;
             if (id != hall.ID)
             {
                 return NotFound();
@@ -118,8 +131,10 @@ namespace Bioscoop.Controllers
         }
 
         // GET: Halls/Delete/5
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Delete(int? id)
         {
+            ViewData["Dashboard"] = true;
             if (id == null)
             {
                 return NotFound();
@@ -137,6 +152,7 @@ namespace Bioscoop.Controllers
 
         // POST: Halls/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "admin, user")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {

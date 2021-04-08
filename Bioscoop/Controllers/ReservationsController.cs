@@ -10,6 +10,7 @@ using Bioscoop.Data;
 using Bioscoop.Models;
 using DinkToPdf;
 using DinkToPdf.Contracts;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Bioscoop.Controllers
 {
@@ -27,14 +28,19 @@ namespace Bioscoop.Controllers
         }
 
         // GET: Reservations
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Index()
         {
+            ViewData["Dashboard"] = true;
             return View(await _context.Reservations.ToListAsync());
         }
 
         // GET: Reservations/Details/5
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Details(int? id)
         {
+            ViewData["Dashboard"] = true;
+
             if (id == null)
             {
                 return NotFound();
@@ -57,6 +63,7 @@ namespace Bioscoop.Controllers
         }
 
         // GET: Reservations/Create
+        [Authorize(Roles = "admin, user")]
         public IActionResult Create()
         {
             return View();
@@ -106,8 +113,10 @@ namespace Bioscoop.Controllers
         }
 
         // GET: Reservations/Edit/5
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Edit(int? id)
         {
+            ViewData["Dashboard"] = true;
             if (id == null)
             {
                 return NotFound();
@@ -126,8 +135,10 @@ namespace Bioscoop.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Edit(int id, [Bind("ID,StoelNr,geanuleerd,ReservationDate,IDtransaction,IDevent")] Reservation reservation)
         {
+            ViewData["Dashboard"] = true;
             if (id != reservation.ID)
             {
                 return NotFound();
@@ -157,8 +168,10 @@ namespace Bioscoop.Controllers
         }
 
         // GET: Reservations/Delete/5
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Delete(int? id)
         {
+            ViewData["Dashboard"] = true;
             if (id == null)
             {
                 return NotFound();
@@ -194,9 +207,11 @@ namespace Bioscoop.Controllers
 
         // POST: Reservations/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "admin, user")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            ViewData["Dashboard"] = true;
             var reservation = await _context.Reservations.FindAsync(id);
             _context.Reservations.Remove(reservation);
             await _context.SaveChangesAsync();

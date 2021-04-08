@@ -1,0 +1,90 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    
+}
+
+
+
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="~/Dashboard">Bioscoop Dashboard</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl='@Url.Page("/Account/Login", new { area = "Identity" })' method="post">
+                <a onclick="this.closest('form').submit();return false;" type="submit" class="nav-link">Sign out</a>
+            </form>
+
+        </li>
+    </ul>
+</nav>
+
+
+
+<link href="~/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+  
+</style>
+
+
+
+<!-- Custom styles for this template -->
+<link href="~/css/dashboard.css" rel="stylesheet">
+
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="sidebar-sticky pt-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="Dashboard" asp-action="MovieOverview" class="nav-link">
+                            <span data-feather="film"></span>
+                            Films
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="Dashboard" asp-action="EventOverview" class="nav-link">
+                            <span data-feather="monitor"></span>
+                            Tentoonstellingen
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="Dashboard" asp-action="HallOverview" class="nav-link">
+                            <span data-feather="square"></span>
+                            Hallen
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="Dashboard" asp-action="ReservationOverview" class="nav-link">
+                            <span data-feather="file"></span>
+                            Reserveringen
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="Dashboard" asp-action="RoleOverview" class="nav-link">
+                            <span data-feather="key"></span>
+                            Rollen
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="user"></span>
+                            Medewerkers
+                        </a>
+                    </li>
+                </ul></div>
+        </nav>
+

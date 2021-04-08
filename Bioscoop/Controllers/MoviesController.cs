@@ -8,7 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Bioscoop.Data;
 using Bioscoop.Models;
 using Microsoft.AspNetCore.Hosting;
-using System.IO; 
+using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Bioscoop.Controllers
 {
@@ -25,14 +26,19 @@ namespace Bioscoop.Controllers
         }
 
         // GET: Movies
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Index()
         {
+            ViewData["Dashboard"] = true;
             return View(await _context.Movies.ToListAsync());
         }
 
         // GET: Movies/Details/5
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Details(int? id)
         {
+            ViewData["Dashboard"] = true;
+
             if (id == null)
             {
                 return NotFound();
@@ -49,8 +55,11 @@ namespace Bioscoop.Controllers
         }
 
         // GET: Movies/Create
+        [Authorize(Roles = "admin, user")]
         public IActionResult Create()
         {
+            ViewData["Dashboard"] = true;
+
             return View();
         }
 
@@ -59,10 +68,13 @@ namespace Bioscoop.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Create(NonPersistantMovie NPmovie)
         {
             if (ModelState.IsValid)
             {
+                ViewData["Dashboard"] = true;
+
                 Movie movie =  new Movie{
                     ReleaseDate = NPmovie.ReleaseDate,
                     ImageCover = UploadedFile(NPmovie),
@@ -97,13 +109,16 @@ namespace Bioscoop.Controllers
                 }  
             }  
             return uniqueFileName;  
-        }  
-     
+        }
+
 
 
         // GET: Movies/Edit/5
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Edit(int? id)
         {
+            ViewData["Dashboard"] = true;
+
             if (id == null)
             {
                 return NotFound();
@@ -122,8 +137,11 @@ namespace Bioscoop.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Edit(int id, [Bind("ID,ReleaseDate,ImageCover,Title,Description,Genre,RatingGuide,director,Cast,DurationMin,Price")] Movie movie)
         {
+            ViewData["Dashboard"] = true;
+
             if (id != movie.ID)
             {
                 return NotFound();
@@ -153,8 +171,11 @@ namespace Bioscoop.Controllers
         }
 
         // GET: Movies/Delete/5
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Delete(int? id)
         {
+            ViewData["Dashboard"] = true;
+
             if (id == null)
             {
                 return NotFound();
@@ -173,8 +194,12 @@ namespace Bioscoop.Controllers
         // POST: Movies/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+
+            ViewData["Dashboard"] = true;
+
             var movie = await _context.Movies.FindAsync(id);
             _context.Movies.Remove(movie);
             await _context.SaveChangesAsync();
