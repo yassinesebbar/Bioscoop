@@ -2,59 +2,44 @@
 
 @{
     ViewData["Title"] = "Details";
+    Reservation reservation = (Reservation)ViewData["Reservation"];
+    Layout = null;
+
 }
 
-<h1>Details</h1>
+<div class="row d-flex justify-content-center">
+    <div class="col-md-6 mb-4 center-block">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">Winkelwagen</span>
+        </h4>
+        <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">@reservation.Event.Movie.Title</h6>
+                    <small class="text-muted">Normale ticket</small>
+                </div>
+                <span class="text-muted">€@reservation.Event.BasePrijs.ToString("0.00") </span>
+            </li>
 
-<div>
-    <h4>FinanceTransaction</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.basePrice)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.basePrice)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ExtraTarif)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ExtraTarif)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.descriptionExtraTarif)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.descriptionExtraTarif)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.discount)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.discount)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.totalPrice)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.totalPrice)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateTimeTransaction)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateTimeTransaction)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IDdiscount)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IDdiscount)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="CreatePaymentApp" asp-route-id="@Model.ID">Betalen</a> |
-    <a asp-action="CancelPaymentApp" asp-route-id="@Model.ID">Annuleren</a>
+            @if (Model.Discount != null)
+            {
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">@Model.Discount.description</h6>
+                    </div>
+                    <span class="text-muted">- €@Model.Discount.discountAmount.ToString("0.00")</span>
+                </li>
+            }
+
+            <li class="list-group-item d-flex justify-content-between">
+                <span>Totaal</span>
+                <strong>€@Model.totalPrice.ToString("0.00")</strong>
+            </li>
+        </ul>
+
+        <div>
+            <a asp-action="CreatePaymentApp" asp-route-id="@Model.ID" class="btn btn-primary btn-lg btn-block" type="submit">Annuleren</a>
+            <a asp-action="CreatePaymentApp" asp-route-id="@Model.ID" class="btn btn-primary btn-lg btn-block" type="submit">Afrekenen</a>
+        </div>
+    </div>
 </div>

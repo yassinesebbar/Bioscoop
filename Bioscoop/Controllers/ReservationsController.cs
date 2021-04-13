@@ -32,7 +32,36 @@ namespace Bioscoop.Controllers
         public async Task<IActionResult> Index()
         {
             ViewData["Dashboard"] = true;
-            return View(await _context.Reservations.ToListAsync());
+            return View(await _context.Reservations.Include(r => r.Event)
+                .Include(r => r.FinanceTransaction)
+                .Include(r => r.StoelNr)
+                .Include(r => r.FinanceTransaction.Discount)
+                .Include(r => r.Event.Hall)
+                .Include(r => r.Event.Movie).ToListAsync());
+        }
+
+        [Authorize(Roles = "admin, user")]
+        public async Task<IActionResult> ReserveringAnnuleren(int? id)
+        {
+            var financeTransaction = await _context.FinanceTransactions.Include(m => m.Discount)
+            .FirstOrDefaultAsync(m => m.ID == id);
+
+            var reservation = await _context.Reservations.Include(m => m.Event).Include(m => m.StoelNr).Include(e => e.Event.ReservedSeats).Include(e => e.Event.AvailableSeats).Include(e => e.FinanceTransaction).FirstOrDefaultAsync(m => m.ID == id);
+            var Payment = await _context.Payments.FirstOrDefaultAsync(p => p.reservation == reservation);
+
+            reservation.FinanceTransaction = null;
+            _context.FinanceTransactions.Remove(financeTransaction);
+            reservation.Event.unReserveSeat(reservation.StoelNr, _context);
+            reservation.geanuleerd = true;
+            reservation.StoelNr = null;
+            Payment.PayBackCustomer();
+
+            _context.Reservations.Update(reservation);
+            _context.Payments.Update(Payment);
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index");
         }
 
         // GET: Reservations/Details/5
@@ -52,6 +81,7 @@ namespace Bioscoop.Controllers
                 .Include(r => r.StoelNr)
                 .Include(r => r.FinanceTransaction.Discount)
                 .Include(r => r.Event.Hall)
+                .Include(r => r.Event.Movie)
                 .FirstOrDefaultAsync(m => m.ID == id);
                 
             if (reservation == null)

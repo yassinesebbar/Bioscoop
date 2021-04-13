@@ -21,6 +21,7 @@ namespace Bioscoop.Controllers
 
         public MoviesController(BioscoopContext context, IWebHostEnvironment hostEnvironment)
         {
+
             _context = context;
             webHostEnvironment = hostEnvironment; 
         }

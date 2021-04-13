@@ -11,8 +11,10 @@
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
     <h1>Index</h1>
 
-    <a asp-action="Create">Create</a>
-    <table class="table table-striped table-bordered">
+    <p>
+        <a class="btn btn-dark" role="button" asp-action="Create">+</a>
+    </p>
+    <table class="table table-dark table-striped table-bordered">
         <thead>
             <tr>
                 <td>Id</td>
@@ -32,4 +34,5 @@
 </main>
 
 <partial name="~/Views/Dashboard/DashboardFooter.cshtml" />
+
 

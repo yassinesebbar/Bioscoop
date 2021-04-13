@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
+
+
+
+
+<partial name="~/Views/Dashboard/DashboardHeader.cshtml" />
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+    @{
+        ViewData["Title"] = "View";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <h1>View</h1>
+
+    <p>
+        <a class="btn btn-dark" role="button"  asp-area="Identity" asp-page="/Account/Register">+</a>
+    </p>
+
+    <table class="table table-dark table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Gebruikersnaam
+                </th>
+                <th>
+                    Email
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        <a class="text-white" type="button" asp-action="Delete" asp-route-id="@item.Id">
+                            <span data-feather="trash-2"></span>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</main>
+
+<partial name="~/Views/Dashboard/DashboardFooter.cshtml" />

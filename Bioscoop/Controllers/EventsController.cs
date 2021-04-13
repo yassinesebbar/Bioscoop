@@ -8,17 +8,23 @@ using Microsoft.EntityFrameworkCore;
 using Bioscoop.Data;
 using Bioscoop.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+
 
 namespace Bioscoop.Controllers
 {
     public class EventsController : Controller
     {
         private readonly BioscoopContext _context;
+        private readonly IActionContextAccessor _contextAccessor;
+        private WLConfigSingleton _wlconfig;
 
-        public EventsController(BioscoopContext context)
+
+
+        public EventsController(IActionContextAccessor contextAccessor, BioscoopContext context)
         {
             _context = context;
-        }
+      }
 
         // GET: Events
         [Authorize(Roles = "admin, user")]
@@ -26,7 +32,11 @@ namespace Bioscoop.Controllers
         {
             ViewData["Dashboard"] = true;
 
-            return View(await _context.Events.ToListAsync());
+            return View(await _context.Events.Include(e => e.Movie)
+                                            .Include(e => e.AvailableSeats)
+                                            .Include(e => e.ReservedSeats)
+                                            .Include(e => e.Hall)
+                                            .ToListAsync());
         }
 
         // GET: Events/Details/5
@@ -42,6 +52,7 @@ namespace Bioscoop.Controllers
 
             var @event = await _context.Events
                 .FirstOrDefaultAsync(m => m.ID == id);
+
             if (@event == null)
             {
                 return NotFound();
@@ -62,7 +73,7 @@ namespace Bioscoop.Controllers
             
             ViewData["Movie"] = await _context.Movies
                 .FirstOrDefaultAsync(m => m.ID == id);
-            ViewData["Events"] =   _context.Events.Where(e => e.IDmovie == id).ToList();
+            ViewData["Events"] =   _context.Events.Where(e => e.IDmovie == id).Where(r => r.Start > DateTime.Now).ToList();
             ViewData["TicketDiscounts"] = await _context.TicketDiscounts.ToListAsync();
 
 

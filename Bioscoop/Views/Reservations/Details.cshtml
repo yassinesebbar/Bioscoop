@@ -17,40 +17,56 @@
         <hr />
         <dl class="row">
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.StoelNr)
+                Reserveringsnummer:
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.StoelNr)
+                @Html.DisplayFor(model => model.ID)
             </dd>
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.geanuleerd)
+                Stoelnummer:
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.geanuleerd)
+                @Html.DisplayFor(model => model.StoelNr.ChairNr)
+            </dd>
+
+            <dt class="col-sm-2">
+                Hal:
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Event.Hall.Name)
+            </dd>
+
+            <dt class="col-sm-2">
+                Film:
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Event.Movie.Title)
+            </dd>
+
+            <dt class="col-sm-2">
+                Begintijd:
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Event.Start)
             </dd>
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.ReservationDate)
+                Reserveringsdatum:
             </dt>
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.ReservationDate)
             </dd>
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.IDtransaction)
+                Geannuleerd:
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.IDtransaction)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.IDevent)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.IDevent)
+                @Html.DisplayFor(model => model.geanuleerd)
             </dd>
         </dl>
     </div>
     <div>
-        <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
-        <a asp-action="Index">Back to List</a>
+        <a class="btn btn-secondary" type="button" asp-action="Index"><</a>
+        <a class="btn btn-dark" type="button" asp-action="ReserveringAnnuleren" asp-route-id="@Model.ID">Reservering annuleren</a> 
+
     </div>
 
 

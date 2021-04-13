@@ -241,6 +241,9 @@ namespace Bioscoop.Migrations
                     b.Property<string>("CouponCode")
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("Refunded")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("paymentMethod")
                         .HasColumnType("INTEGER");
 
@@ -325,6 +328,34 @@ namespace Bioscoop.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("TicketDiscounts");
+                });
+
+            modelBuilder.Entity("Bioscoop.Models.WLConfigSingleton", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("WhiteListing")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("WLConfigSingleton");
+                });
+
+            modelBuilder.Entity("Bioscoop.Models.WhiteListingIP", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("IPaddress")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("WhiteListingIP");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

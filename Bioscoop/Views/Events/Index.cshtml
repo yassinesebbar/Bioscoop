@@ -11,19 +11,35 @@
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
 
 
-    <h1>Index</h1>
+    <h1>Tentoonstellingen</h1>
 
     <p>
-        <a asp-action="Create">Create New</a>
+        <a class="btn btn-dark" role="button" asp-action="Create">+</a>
     </p>
-    <table class="table">
+
+    <table class="table table-dark table-striped table-bordered">
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Start)
+                    ID
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.End)
+                    Film
+                </th>
+                <th>
+                    Zaal
+                </th>
+                <th>
+                    Begin
+                </th>
+                <th>
+                    Eind
+                </th>
+                <th>
+                    Beschikbare stoelen
+                </th>
+                <th>
+                    Gereserveerde stoelen
                 </th>
                 <th></th>
             </tr>
@@ -31,19 +47,38 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Start)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.End)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Movie.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hall.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Start)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.End)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AvailableSeats.Count)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReservedSeats.Count)
+                </td>
+                <td>
+                <td>
+                    @if (item.ReservedSeats.Count < 1)
+                    {
+                        <a class="text-white" type="button" asp-action="Delete" asp-route-id="@item.ID">
+                            <span data-feather="trash-2"></span>
+                        </a>
+                    }
+                </td>
+            </tr>
             }
         </tbody>
     </table>

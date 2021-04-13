@@ -15,12 +15,12 @@
         ViewData["Title"] = "Index";
     }
 
-    <h1>Movie overview</h1>
+    <h1>Film</h1>
 
     <p>
-        <a asp-action="Create">Create New</a>
+        <a class="btn btn-dark" role="button" asp-action="Create">+</a>
     </p>
-    <table class="table table-dark">
+    <table class="table table-dark table-striped table-bordered">
         <thead>
             <tr>
                 <th scope="col">
@@ -79,19 +79,16 @@
                         @Html.DisplayFor(modelItem => item.DurationMin)
                     </td>
                     <td>
-                      @*  <button type="button" asp-action="Details" asp-route-id="@item.ID" class="btn btn-primary btn-block"><i class="far" data-feather="info"></i></button>
-                        <button type="button" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-success btn-block"><i class="fas" data-feather="edit"></i></button>
-                        <button type="button" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger btn-block"><i class="far" data-feather="trash-2"></i></button>*@
 
-                        <a type="button" asp-action="Details" asp-route-id="@item.ID">
+                        <a class="text-white" type="button" asp-action="Details" asp-route-id="@item.ID">
                             <span data-feather="info"></span>
                         </a>
 
-                        <a type="button" asp-action="Edit" asp-route-id="@item.ID">
+                        <a class="text-white" type="button" asp-action="Edit" asp-route-id="@item.ID">
                             <span data-feather="edit"></span>
                         </a>
 
-                        <a type="button" asp-action="Delete" asp-route-id="@item.ID">
+                        <a class="text-white" type="button" asp-action="Delete" asp-route-id="@item.ID">
                             <span data-feather="trash-2"></span>
                         </a>
                     </td>

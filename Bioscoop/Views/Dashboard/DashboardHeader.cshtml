@@ -49,42 +49,61 @@
         <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
             <div class="sidebar-sticky pt-3">
                 <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a asp-area="" asp-controller="Dashboard" asp-action="MovieOverview" class="nav-link">
-                            <span data-feather="film"></span>
-                            Films
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-area="" asp-controller="Dashboard" asp-action="EventOverview" class="nav-link">
-                            <span data-feather="monitor"></span>
-                            Tentoonstellingen
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-area="" asp-controller="Dashboard" asp-action="HallOverview" class="nav-link">
-                            <span data-feather="square"></span>
-                            Hallen
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-area="" asp-controller="Dashboard" asp-action="ReservationOverview" class="nav-link">
-                            <span data-feather="file"></span>
-                            Reserveringen
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-area="" asp-controller="Dashboard" asp-action="RoleOverview" class="nav-link">
-                            <span data-feather="key"></span>
-                            Rollen
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="user"></span>
-                            Medewerkers
-                        </a>
-                    </li>
+                    @if (User.IsInRole("admin") || User.IsInRole("user"))
+                    {
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Dashboard" asp-action="MovieOverview" class="nav-link">
+                                <span data-feather="film"></span>
+                                Films
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Dashboard" asp-action="EventOverview" class="nav-link">
+                                <span data-feather="monitor"></span>
+                                Tentoonstellingen
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Dashboard" asp-action="ReservationOverview" class="nav-link">
+                                <span data-feather="file"></span>
+                                Reserveringen
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Dashboard" asp-action="LostItemOverview" class="nav-link">
+                                <span data-feather="archive"></span>
+                                Gevonden voorwerpen
+                            </a>
+                        </li>
+                    }
+                    @if (User.IsInRole("admin"))
+                    {
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Dashboard" asp-action="HallOverview" class="nav-link">
+                                <span data-feather="square"></span>
+                                Hallen
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Dashboard" asp-action="WhiteListingOverview" class="nav-link">
+                                <span data-feather="key"></span>
+                                Whitelist
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Dashboard" asp-action="RoleOverview" class="nav-link">
+                                <span data-feather="key"></span>
+                                Rollen
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="UserOverview">
+                                <span data-feather="user"></span>
+                                Medewerkers
+                            </a>
+                        </li>
+                    }
                 </ul></div>
         </nav>
 

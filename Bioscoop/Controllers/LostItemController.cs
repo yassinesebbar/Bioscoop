@@ -7,27 +7,38 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Bioscoop.Data;
 using Bioscoop.Models;
+using Microsoft.AspNetCore.Authorization;
+using Bioscoop.ViewDataWrapper;
+using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace Bioscoop.Controllers
 {
     public class LostItemController : Controller
     {
         private readonly BioscoopContext _context;
+        private readonly IHttpContextAccessor _HttpContext;
 
-        public LostItemController(BioscoopContext context)
+        public LostItemController(BioscoopContext context, IHttpContextAccessor httpContext)
         {
             _context = context;
+            _HttpContext = httpContext;
         }
 
         // GET: LostItem
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Index()
         {
+            ViewData["Dashboard"] = true;
             return View(await _context.LostItems.ToListAsync());
         }
 
         // GET: LostItem/Details/5
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Details(int? id)
         {
+            ViewData["Dashboard"] = true;
+
             if (id == null)
             {
                 return NotFound();
@@ -44,8 +55,11 @@ namespace Bioscoop.Controllers
         }
 
         // GET: LostItem/Create
+        [Authorize(Roles = "admin, user")]
         public IActionResult Create()
         {
+            ViewData["Dashboard"] = true;
+
             return View();
         }
 
@@ -54,20 +68,37 @@ namespace Bioscoop.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Description,DateLost,DateFound,EmployeeFound,EmployeeRelease,Image,LocationFound,ItemFound")] LostItem lostItem)
+        [Authorize(Roles = "admin, user")]
+        public async Task<IActionResult> Create(NonPersistantLostItems nonPersistantLostItems)
         {
+            ViewData["Dashboard"] = true;
+
             if (ModelState.IsValid)
             {
+                LostItem lostItem = new LostItem
+                {
+                    Description = nonPersistantLostItems.Description,
+                    DateLost = nonPersistantLostItems.DateLost,
+                    EmployeeFound = nonPersistantLostItems.EmployeeFound,
+                    Image = UploadedFile(nonPersistantLostItems),
+                    LocationFound = nonPersistantLostItems.LocationFound,
+                    ItemFound = nonPersistantLostItems.ItemFound,
+                };
+
                 _context.Add(lostItem);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(lostItem);
+
+            return View(nonPersistantLostItems);
         }
 
         // GET: LostItem/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        [Authorize(Roles = "admin, user")]
+        public async Task<IActionResult> FoundItem(int? id)
         {
+            ViewData["Dashboard"] = true;
+
             if (id == null)
             {
                 return NotFound();
@@ -78,7 +109,15 @@ namespace Bioscoop.Controllers
             {
                 return NotFound();
             }
-            return View(lostItem);
+
+            lostItem.ItemFound = true;
+            lostItem.DateFound = DateTime.Now;
+            lostItem.EmployeeRelease = _HttpContext.HttpContext.User.Identity.Name;
+
+            _context.Update(lostItem);
+            _context.SaveChangesAsync();
+
+            return RedirectToAction("Index");
         }
 
         // POST: LostItem/Edit/5
@@ -86,8 +125,11 @@ namespace Bioscoop.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Edit(int id, [Bind("ID,Description,DateLost,DateFound,EmployeeFound,EmployeeRelease,Image,LocationFound,ItemFound")] LostItem lostItem)
         {
+            ViewData["Dashboard"] = true;
+
             if (id != lostItem.ID)
             {
                 return NotFound();
@@ -116,9 +158,29 @@ namespace Bioscoop.Controllers
             return View(lostItem);
         }
 
+        private string UploadedFile(NonPersistantLostItems model)
+        {
+            string uniqueFileName = null;
+
+            if (model.ImageLostItem != null)
+            {
+                string uploadsFolder = "wwwroot/imagesItems";
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + model.ImageLostItem.FileName;
+                string filePath = uploadsFolder + "/" + uniqueFileName;
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.ImageLostItem.CopyTo(fileStream);
+                }
+            }
+            return uniqueFileName;
+        }
+
         // GET: LostItem/Delete/5
+        [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> Delete(int? id)
         {
+            ViewData["Dashboard"] = true;
+
             if (id == null)
             {
                 return NotFound();
@@ -135,10 +197,13 @@ namespace Bioscoop.Controllers
         }
 
         // POST: LostItem/Delete/5
+        [Authorize(Roles = "admin, user")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            ViewData["Dashboard"] = true;
+
             var lostItem = await _context.LostItems.FindAsync(id);
             _context.LostItems.Remove(lostItem);
             await _context.SaveChangesAsync();

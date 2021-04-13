@@ -13,72 +13,68 @@
 
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
 
-    <h1>Details</h1>
 
-    <div>
-        <h4>Movie</h4>
-        <hr />
-        <dl class="row">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.ReleaseDate)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.ReleaseDate)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.ImageCover)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.ImageCover)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Title)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Title)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Description)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Description)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Genre)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Genre)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.RatingGuide)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.RatingGuide)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.director)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.director)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Cast)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Cast)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.DurationMin)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.DurationMin)
-            </dd>
-        </dl>
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">@Html.DisplayFor(model => model.Title)</h2>
+            <p class="lead">@Html.DisplayFor(model => model.Description).</p>
+
+            <div>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.ReleaseDate)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.ReleaseDate)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Genre)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Genre)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.RatingGuide)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.RatingGuide)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.director)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.director)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Cast)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Cast)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.DurationMin)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.DurationMin)
+                    </dd>
+                </dl>
+            </div>
+
+            <div>
+                <a class="btn btn-secondary" type="button" asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+                <a class="btn btn-secondary" type="button" asp-action="Index">Back to List</a>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <img src="~/images/@Html.DisplayFor(model => model.ImageCover)" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"/>
+        </div>
     </div>
-    <div>
-        <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
-        <a asp-action="Index">Back to List</a>
-    </div>
+
+    <hr class="featurette-divider">
+
 
 
 </main>

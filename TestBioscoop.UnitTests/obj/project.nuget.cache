@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "WV4Oo2cl9OEXDyFhsYZyBnpRCZAcmF7NpY7c8VQokXxc/nD97i4N4YRvzBLyoA6DuMJer/ldjnBgL8Pk8zSdXw==",
+  "success": false,
+  "projectFilePath": "C:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\TestBioscoop.UnitTests\\TestBioscoop.UnitTests.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Project Bioscoop is not compatible with netcoreapp3.1 (.NETCoreApp,Version=v3.1). Project Bioscoop supports: net5.0 (.NETCoreApp,Version=v5.0)",
+      "libraryId": "Bioscoop",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
+}

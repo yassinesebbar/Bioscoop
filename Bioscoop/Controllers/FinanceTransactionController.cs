@@ -83,7 +83,11 @@ namespace Bioscoop.Controllers
         {
             var financeTransaction = await _context.FinanceTransactions
             .FirstOrDefaultAsync(m => m.ID == id);
-    
+
+            var reservation = await _context.Reservations.Include(m => m.Event).Include(m => m.Event.Movie).FirstOrDefaultAsync(m => m.FinanceTransaction == financeTransaction);
+            ViewData["reservation"] = reservation;
+
+
             return View(financeTransaction);
         }
 

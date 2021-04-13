@@ -15663,6 +15663,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\WLConfigSingleton\\Create.cshtml",
+      "TargetPath": "Views\\WLConfigSingleton\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
@@ -15680,6 +15685,11 @@
     {
       "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\LostItem\\Create.cshtml",
       "TargetPath": "Views\\LostItem\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\WLConfigSingleton\\Delete.cshtml",
+      "TargetPath": "Views\\WLConfigSingleton\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15720,6 +15730,11 @@
     {
       "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Events\\EventsMovieFilterApp.cshtml",
       "TargetPath": "Views\\Events\\EventsMovieFilterApp.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\WLConfigSingleton\\Index.cshtml",
+      "TargetPath": "Views\\WLConfigSingleton\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15778,6 +15793,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\WLConfigSingleton\\Details.cshtml",
+      "TargetPath": "Views\\WLConfigSingleton\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Halls\\Create.cshtml",
       "TargetPath": "Views\\Halls\\Create.cshtml",
       "FileKind": "mvc"
@@ -15788,8 +15808,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\WhiteListingIP\\Create.cshtml",
+      "TargetPath": "Views\\WhiteListingIP\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Dashboard\\DashboardHeader.cshtml",
       "TargetPath": "Views\\Dashboard\\DashboardHeader.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\WhiteListingIP\\Details.cshtml",
+      "TargetPath": "Views\\WhiteListingIP\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15943,6 +15973,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\WhiteListingIP\\Index.cshtml",
+      "TargetPath": "Views\\WhiteListingIP\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\FinanceTransaction\\Edit.cshtml",
       "TargetPath": "Views\\FinanceTransaction\\Edit.cshtml",
       "FileKind": "mvc"
@@ -15980,6 +16015,21 @@
     {
       "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\Reservations\\Create.cshtml",
       "TargetPath": "Views\\Reservations\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\WhiteListingIP\\Edit.cshtml",
+      "TargetPath": "Views\\WhiteListingIP\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\WLConfigSingleton\\Edit.cshtml",
+      "TargetPath": "Views\\WLConfigSingleton\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\yassine.000\\Documents\\GitHub\\Bioscoop\\Bioscoop\\Views\\WhiteListingIP\\Delete.cshtml",
+      "TargetPath": "Views\\WhiteListingIP\\Delete.cshtml",
       "FileKind": "mvc"
     }
   ],

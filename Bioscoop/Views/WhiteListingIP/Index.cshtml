@@ -1,0 +1,74 @@
+@model Bioscoop.ViewDataWrapper.WhiteListing
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<partial name="~/Views/Dashboard/DashboardHeader.cshtml" />
+
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+
+    <h1>Whitelist</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="EditConfig">
+                <div class="text-danger"></div>
+                <input type="hidden" asp-for="wlconfigid" />
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="wlconfigbool" /> Aan / Uit
+                    </label>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-dark" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr />
+    @if (Model.WLconfig.WhiteListing)
+    {
+        <h4>IP Adressen</h4>
+        <p>
+            <a class="btn btn-dark" role="button" asp-action="Create">+</a>
+        </p>
+
+        <table class="table table-dark table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        IP
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.IPlist)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IPaddress)
+                        </td>
+                        <td>
+                            <a class="text-white" type="button" asp-action="Edit" asp-route-id="@item.ID">
+                                <span data-feather="edit"></span>
+                            </a>
+
+                            <a class="text-white" type="button" asp-action="Delete" asp-route-id="@item.ID">
+                                <span data-feather="trash-2"></span>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+
+</main>
+
+<partial name="~/Views/Dashboard/DashboardFooter.cshtml" />
+

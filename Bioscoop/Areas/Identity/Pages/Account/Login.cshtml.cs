@@ -11,6 +11,9 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Bioscoop.Data;
+using Bioscoop.Models;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace Bioscoop.Areas.Identity.Pages.Account
 {
@@ -20,11 +23,25 @@ namespace Bioscoop.Areas.Identity.Pages.Account
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly BioscoopContext _context;
+        private WLConfigSingleton _wlconfig;
+        private readonly IActionContextAccessor _contextAccessor;
+
 
         public LoginModel(SignInManager<IdentityUser> signInManager, 
             ILogger<LoginModel> logger,
-            UserManager<IdentityUser> userManager)
+            UserManager<IdentityUser> userManager,
+            IActionContextAccessor contextAccessor, BioscoopContext context)
         {
+            _context = context;
+
+            _contextAccessor = contextAccessor;
+            _wlconfig = _context.WLConfigSingleton.FirstOrDefault(m => m.ID == 1);
+
+            var ipString = _contextAccessor.ActionContext.HttpContext.Connection.RemoteIpAddress.ToString();
+            var @ipObj = _context.WhiteListingIP.FirstOrDefault(m => m.IPaddress == ipString);
+            _wlconfig.checkWhiteListing(@ipObj);
+
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
@@ -56,6 +73,8 @@ namespace Bioscoop.Areas.Identity.Pages.Account
 
         public async Task OnGetAsync(string returnUrl = null)
         {
+
+        
             ViewData["Dashboard"] = true;
 
             if (!string.IsNullOrEmpty(ErrorMessage))
@@ -63,13 +82,15 @@ namespace Bioscoop.Areas.Identity.Pages.Account
                 ModelState.AddModelError(string.Empty, ErrorMessage);
             }
 
-            returnUrl ??= Url.Content("~/");
+            returnUrl ??= Url.Content("/");
 
             // Clear the existing external cookie to ensure a clean login process
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
 
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
+            ViewData["wlapproved"] = _wlconfig.IPapproved;
+            
             ReturnUrl = returnUrl;
         }
 
@@ -78,6 +99,8 @@ namespace Bioscoop.Areas.Identity.Pages.Account
             ViewData["LoginPage"] = true;
 
             returnUrl ??= Url.Content("~/Dashboard/Index");
+            ViewData["wlapproved"] = _wlconfig.IPapproved;
+
 
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         

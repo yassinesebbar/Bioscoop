@@ -16,5 +16,11 @@ namespace Bioscoop.Models
         public Double Amount {get; set;}
         public String CouponCode {get; set;}
         public Reservation reservation {get; set;}
+        public Boolean Refunded { get; set; }
+
+        public void PayBackCustomer()
+        {
+            this.Refunded = true;
+        }
     }
 }

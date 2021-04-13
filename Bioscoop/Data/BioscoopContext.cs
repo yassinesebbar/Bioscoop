@@ -22,6 +22,8 @@ namespace Bioscoop.Data
         public DbSet<Chair> Chairs{get;set;}
         public DbSet<Payment> Payments{get;set;}
         public DbSet<LostItem> LostItems{get;set;}
+        public DbSet<WLConfigSingleton> WLConfigSingleton{get;set;}
+        public DbSet<WhiteListingIP> WhiteListingIP{get;set;}
 
     }
 }

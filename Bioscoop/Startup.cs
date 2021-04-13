@@ -13,7 +13,8 @@ using Microsoft.EntityFrameworkCore;
 using DinkToPdf;
 using DinkToPdf.Contracts;
 using Microsoft.AspNetCore.Identity;
-
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.AspNetCore.Http;
 
 namespace Bioscoop
 {
@@ -38,6 +39,10 @@ namespace Bioscoop
             services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultUI().AddEntityFrameworkStores<BioscoopContext>().AddRoles<IdentityRole>();
             services.AddControllersWithViews();
             services.AddHttpContextAccessor();
+            services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+
 
 
 

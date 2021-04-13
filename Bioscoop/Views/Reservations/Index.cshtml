@@ -11,28 +11,31 @@
 
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
 
-    <h1>Index</h1>
+    <h1>Reserveringen</h1>
 
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
-    <table class="table">
+    <table class="table table-dark table-striped table-bordered">
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.StoelNr)
+                    Reserveringsnummer
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.geanuleerd)
+                    Stoelnummer
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ReservationDate)
+                    Film
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.IDtransaction)
+                    Begintijd
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.IDevent)
+                    Eindtijd
+                </th>
+                <th>
+                    Reserveringsdatum
+                </th>
+                <th>
+                    Geannuleerd
                 </th>
                 <th></th>
             </tr>
@@ -40,28 +43,42 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.StoelNr)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.geanuleerd)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ReservationDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IDtransaction)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IDevent)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StoelNr.ChairNr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Event.Movie.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Event.Start)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Event.End)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReservationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.geanuleerd)
+                </td>
+                <td>
+                    <a class="text-white" type="button" asp-action="Details" asp-route-id="@item.ID">
+                        <span data-feather="info"></span>
+                    </a>
+
+                    @*  <a class="text-white" type="button" asp-action="Edit" asp-route-id="@item.ID">
+                            <span data-feather="edit"></span>
+                        </a>
+
+                    <a class="text-white" type="button" asp-action="Delete" asp-route-id="@item.ID">
+                        <span data-feather="trash-2"></span>
+                    </a>*@
+                </td>
+            </tr>
             }
         </tbody>
     </table>

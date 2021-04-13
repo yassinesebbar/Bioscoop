@@ -31,13 +31,17 @@ namespace Bioscoop.Models
             return this.Seats;
         }
 
+        public void CalculateSeats()
+        {
+            NumSeats = SeatsPerRow * Rows;
+        }
+
         public void SetSeats(BioscoopContext db, Event ev)
         {  
             ev.AvailableSeats = new List<Chair>();
 
               if(SeatsPerRow != 0 && Rows != 0)
             {
-                NumSeats = SeatsPerRow * Rows;
                 String[] alphabet = new String[] {"A", "B","C","D","E","F","G","H","I","J","K","L","M","N","O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
                 Seats = new List<Chair>();
 

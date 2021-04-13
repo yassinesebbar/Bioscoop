@@ -5,11 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using Bioscoop.Data;
+using Bioscoop.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
@@ -24,19 +27,30 @@ namespace Bioscoop.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly BioscoopContext _context;
+        private WLConfigSingleton _wlconfig;
+        private readonly IActionContextAccessor _contextAccessor;
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender,
-            RoleManager<IdentityRole> roleManager)
+            RoleManager<IdentityRole> roleManager, 
+            IActionContextAccessor contextAccessor, BioscoopContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
             _roleManager = roleManager;
+            _contextAccessor = contextAccessor;
+            _context = context;
+            _wlconfig = _context.WLConfigSingleton.FirstOrDefault(m => m.ID == 1);
+
+            var ipString = _contextAccessor.ActionContext.HttpContext.Connection.RemoteIpAddress.ToString();
+            var @ipObj = _context.WhiteListingIP.FirstOrDefault(m => m.IPaddress == ipString);
+            _wlconfig.checkWhiteListing(@ipObj);
         }
 
         [BindProperty]
@@ -70,11 +84,14 @@ namespace Bioscoop.Areas.Identity.Pages.Account
         public void OnGet(string returnUrl = null)
         {
             ViewData["roles"] = _roleManager.Roles.ToList();
+            ViewData["wlapproved"] = _wlconfig.IPapproved;
             ReturnUrl = returnUrl;
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
+            ViewData["wlapproved"] = _wlconfig.IPapproved;
+
             returnUrl ??= Url.Content("~/");
             ViewData["roles"] = _roleManager.Roles.ToList();
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
@@ -88,29 +105,8 @@ namespace Bioscoop.Areas.Identity.Pages.Account
                     _logger.LogInformation("User created a new account with password.");
                     await _userManager.AddToRoleAsync(user, role.Name);
 
-                    /*          var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                              code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-                              var callbackUrl = Url.Page(
-                                  "/Account/ConfirmEmail",
-                                  pageHandler: null,
-                                  values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
-                                  protocol: Request.Scheme);
-
-                              await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                                  $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-
-                              if (_userManager.Options.SignIn.RequireConfirmedAccount)
-                              {
-                                  return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
-                              }
-                              else
-                              {
-                                  await _signInManager.SignInAsync(user, isPersistent: false);
-                                  return LocalRedirect(returnUrl);
-                              }*/
-
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    return LocalRedirect(returnUrl);
+/*                    await _signInManager.SignInAsync(user, isPersistent: false);
+*/                    return RedirectToAction("Index", "Users");
 
                 }
                 foreach (var error in result.Errors)

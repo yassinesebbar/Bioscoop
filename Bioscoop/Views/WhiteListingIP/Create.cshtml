@@ -1,0 +1,48 @@
+@model Bioscoop.Models.WhiteListingIP
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+
+
+<partial name="~/Views/Dashboard/DashboardHeader.cshtml" />
+
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+
+    <h1>Create</h1>
+
+    <h4>WhiteListingIP</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="IPaddress" class="control-label"></label>
+                    <input asp-for="IPaddress" class="form-control" />
+                    <span asp-validation-for="IPaddress" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+
+
+</main>
+
+<partial name="~/Views/Dashboard/DashboardFooter.cshtml" />
+
